@@ -1,24 +1,77 @@
-﻿using System.Net;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Text.RegularExpressions;
+using MoreLinq;
 
 namespace Project2_SimpleProxy
 {
     internal class Program
     {
+        private static string END_OF_HEADERS_SEQUENCE = "\r\n\r\n";
+
+        private static int HTTPGetEndOfHeaderIndex(List<byte> buffer)
+        {
+            return Encoding.UTF8.GetString(buffer.ToArray()).IndexOf(END_OF_HEADERS_SEQUENCE);
+        }
+
+        private static Regex ContentLengthRegex = new Regex(@"^Content-Length:\s(\d+)$", RegexOptions.Compiled);
+
+        private static int GetContentLength(string header)
+        {
+            if (!ContentLengthRegex.IsMatch(header))
+            {
+                return 0;
+            }
+
+
+            var match = ContentLengthRegex.Match(header);
+
+            if(match == null)
+            {
+                return 0;
+            }
+
+
+            return int.Parse(match.Groups[1].Value);
+        }
+
+        private static bool TryGetContentLength(List<byte> buffer, out int headerIndex, out int contentLength)
+        {
+            headerIndex = HTTPGetEndOfHeaderIndex(buffer);
+
+            if (headerIndex == -1)
+            {
+                contentLength = 0;
+                return false;
+            }
+
+            var header = Encoding.UTF8.GetString(buffer.ToArray()[..headerIndex]);
+            contentLength = GetContentLength(header);
+
+            return true;
+        }
+
+        private static bool IsEndOfMessage(List<byte> buffer)
+        {
+            return TryGetContentLength(buffer, out var headerIndex, out var contentLength) 
+                && (contentLength == 0 || (buffer.Count - (headerIndex + END_OF_HEADERS_SEQUENCE.Length)) == contentLength);
+        }
+
+
+
         static async Task Main(string[] args)
         {
             using Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
-            //Get and assign port
             socket.Bind(new IPEndPoint(IPAddress.Any, 8080));
 
             
             socket.Listen(100);
             Console.WriteLine($"admin: started server on '{Environment.MachineName}' at '{((IPEndPoint)socket.LocalEndPoint).Port}'");
 
-
-            //Accept incoming connections, read their data, do all the things.
 
             while (true)
             {
@@ -31,9 +84,14 @@ namespace Project2_SimpleProxy
                 byte[] clientBuffer = new byte[socket.ReceiveBufferSize];
 
                 int clientReceived = 0;
-                while(clientSocket.Available > 0 && (clientReceived = await clientSocket.ReceiveAsync(clientBuffer, SocketFlags.None)) > 0)
+                while((clientReceived = await clientSocket.ReceiveAsync(clientBuffer, SocketFlags.None)) > 0)
                 {
                     allClientBytesReceived.AddRange(clientBuffer.AsSpan()[..clientReceived]);
+
+                    if (IsEndOfMessage(allClientBytesReceived))
+                    {
+                        break;
+                    }
                 }
 
                 var httpRequest = Encoding.UTF8.GetString(allClientBytesReceived.ToArray());
@@ -66,18 +124,22 @@ namespace Project2_SimpleProxy
                 while((httpSocketReceived = await httpSocket.ReceiveAsync(httpBuffer, SocketFlags.None)) > 0)
                 {
                     allHttpSocketBytesReceived.AddRange(httpBuffer.AsSpan()[..httpSocketReceived]);
+
+
+                    var message = Encoding.UTF8.GetString(allHttpSocketBytesReceived.ToArray());
+
+                    if (IsEndOfMessage(allHttpSocketBytesReceived))
+                    {
+                        break;
+                    }
                 }
 
                 var clientResponse = Encoding.UTF8.GetString(allHttpSocketBytesReceived.ToArray());
 
-                Console.WriteLine(clientResponse);
+                Console.WriteLine("Writing response to client...");
                 await clientSocket.SendAsync(allHttpSocketBytesReceived.ToArray());
 
-                //Send reply here
-                //await clientSocket.SendAsync(allData.ToArray());
-
-
-                //Use a regex to get every single part of this regex.
+                Console.WriteLine("Complete! Awaiting next conneciton request.");
 
             }
         }
