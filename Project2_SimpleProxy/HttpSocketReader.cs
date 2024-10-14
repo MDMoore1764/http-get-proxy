@@ -64,7 +64,8 @@ namespace Project2_SimpleProxy
         private static bool IsEndOfMessage(List<byte> buffer)
         {
             return TryGetContentLength(buffer, out var headerIndex, out var contentLength)
-                && (contentLength == 0 || (buffer.Count - (headerIndex + END_OF_HEADERS_SEQUENCE.Length)) == contentLength);
+                && (contentLength == 0 ||
+                    (buffer.Count - (headerIndex + END_OF_HEADERS_SEQUENCE.Length)) == contentLength);
         }
 
 
@@ -86,6 +87,12 @@ namespace Project2_SimpleProxy
             }
 
             return allClientBytesReceived;
+        }
+
+        public async Task<string> ReadAsStringAsync()
+        {
+            var bytes = await ReadAllBytesAsync();
+            return Encoding.UTF8.GetString(bytes.ToArray());
         }
     }
 }

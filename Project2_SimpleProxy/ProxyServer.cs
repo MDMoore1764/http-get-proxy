@@ -22,9 +22,9 @@ namespace Project2_SimpleProxy
 
             socket.Bind(new IPEndPoint(IPAddress.Any, fixedPort));
 
-            socket.Listen(100);
+            socket.Listen();
 
-            Console.WriteLine($"admin: started server on '{Environment.MachineName}' at '{((IPEndPoint)socket.LocalEndPoint).Port}'");
+            Console.WriteLine($"admin: started server on '{Environment.MachineName}' at '{((IPEndPoint)socket.LocalEndPoint!).Port}'");
 
             while (true)
             {
@@ -32,10 +32,9 @@ namespace Project2_SimpleProxy
 
                 using var clientSocket = await socket.AcceptAsync();
 
-                Console.WriteLine($"admin: accepted connection from '{((IPEndPoint)clientSocket.RemoteEndPoint).Address}' at '{((IPEndPoint)clientSocket.RemoteEndPoint).Port}'");
+                Console.WriteLine($"admin: accepted connection from '{((IPEndPoint)clientSocket.RemoteEndPoint!).Address}' at '{((IPEndPoint)clientSocket.RemoteEndPoint).Port}'");
 
                 var clientSocketReader = new HttpSocketReader(clientSocket);
-
                 List<byte> allClientBytesReceived = await clientSocketReader.ReadAllBytesAsync();
 
                 var httpRequest = Encoding.UTF8.GetString(allClientBytesReceived.ToArray());
@@ -62,7 +61,7 @@ namespace Project2_SimpleProxy
 
             await httpSocket.ConnectAsync(targetIPEndpoint);
 
-            Console.WriteLine($"Connected to '{targetIPEndpoint.Address.ToString()}' at '{targetIPEndpoint.Port}'");
+            Console.WriteLine($"Connected to '{targetIPEndpoint.Address}' at '{targetIPEndpoint.Port}'");
 
             await httpSocket.SendAsync(clientRequestBytes.ToArray());
 

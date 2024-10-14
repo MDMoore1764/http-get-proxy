@@ -13,7 +13,7 @@ namespace Project2_SimpleProxy
         static async Task Main(string[] args)
         {
             var proxyServer = new ProxyServer();
-            await proxyServer.RunServerAsync(8080);
+            await proxyServer.RunServerAsync();
         }
     }
 }
