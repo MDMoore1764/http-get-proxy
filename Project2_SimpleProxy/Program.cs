@@ -10,55 +10,6 @@ namespace Project2_SimpleProxy
 {
     internal class Program
     {
-        private static string END_OF_HEADERS_SEQUENCE = "\r\n\r\n";
-
-        private static int HTTPGetEndOfHeaderIndex(List<byte> buffer)
-        {
-            return Encoding.UTF8.GetString(buffer.ToArray()).IndexOf(END_OF_HEADERS_SEQUENCE);
-        }
-
-        private static Regex ContentLengthRegex = new Regex(@"^Content-Length:\s(\d+)$", RegexOptions.Compiled);
-
-        private static int GetContentLength(string header)
-        {
-            if (!ContentLengthRegex.IsMatch(header))
-            {
-                return 0;
-            }
-
-
-            var match = ContentLengthRegex.Match(header);
-
-            if(match == null)
-            {
-                return 0;
-            }
-
-
-            return int.Parse(match.Groups[1].Value);
-        }
-
-        private static bool TryGetContentLength(List<byte> buffer, out int headerIndex, out int contentLength)
-        {
-            headerIndex = HTTPGetEndOfHeaderIndex(buffer);
-
-            if (headerIndex == -1)
-            {
-                contentLength = 0;
-                return false;
-            }
-
-            var header = Encoding.UTF8.GetString(buffer.ToArray()[..headerIndex]);
-            contentLength = GetContentLength(header);
-
-            return true;
-        }
-
-        private static bool IsEndOfMessage(List<byte> buffer)
-        {
-            return TryGetContentLength(buffer, out var headerIndex, out var contentLength) 
-                && (contentLength == 0 || (buffer.Count - (headerIndex + END_OF_HEADERS_SEQUENCE.Length)) == contentLength);
-        }
 
 
 
@@ -77,22 +28,14 @@ namespace Project2_SimpleProxy
             {
                 using var clientSocket = await socket.AcceptAsync();
 
+
                 Console.WriteLine($"admin: accepted connection from '{((IPEndPoint)clientSocket.RemoteEndPoint).Address}' at '{((IPEndPoint)clientSocket.RemoteEndPoint).Port}'");
 
-                List<byte> allClientBytesReceived = new List<byte>();
 
-                byte[] clientBuffer = new byte[socket.ReceiveBufferSize];
+                var clientSocketReader = new HttpSocketReader(clientSocket);
 
-                int clientReceived = 0;
-                while((clientReceived = await clientSocket.ReceiveAsync(clientBuffer, SocketFlags.None)) > 0)
-                {
-                    allClientBytesReceived.AddRange(clientBuffer.AsSpan()[..clientReceived]);
 
-                    if (IsEndOfMessage(allClientBytesReceived))
-                    {
-                        break;
-                    }
-                }
+                List<byte> allClientBytesReceived = await clientSocketReader.ReadAllBytesAsync();
 
                 var httpRequest = Encoding.UTF8.GetString(allClientBytesReceived.ToArray());
 
@@ -117,29 +60,18 @@ namespace Project2_SimpleProxy
 
                 await httpSocket.SendAsync(allClientBytesReceived.ToArray());
 
-                List<byte> allHttpSocketBytesReceived = new List<byte>();
-                byte[] httpBuffer = new byte[httpSocket.ReceiveBufferSize];
-                int httpSocketReceived = 0;
-
-                while((httpSocketReceived = await httpSocket.ReceiveAsync(httpBuffer, SocketFlags.None)) > 0)
-                {
-                    allHttpSocketBytesReceived.AddRange(httpBuffer.AsSpan()[..httpSocketReceived]);
+                var httpSocketReader = new HttpSocketReader(httpSocket);
 
 
-                    var message = Encoding.UTF8.GetString(allHttpSocketBytesReceived.ToArray());
-
-                    if (IsEndOfMessage(allHttpSocketBytesReceived))
-                    {
-                        break;
-                    }
-                }
+                List<byte> allHttpSocketBytesReceived = await httpSocketReader.ReadAllBytesAsync();
+               
 
                 var clientResponse = Encoding.UTF8.GetString(allHttpSocketBytesReceived.ToArray());
 
                 Console.WriteLine("Writing response to client...");
                 await clientSocket.SendAsync(allHttpSocketBytesReceived.ToArray());
 
-                Console.WriteLine("Complete! Awaiting next conneciton request.");
+                Console.WriteLine("Complete! Awaiting next connection request.");
 
             }
         }
