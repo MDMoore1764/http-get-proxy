@@ -2,26 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Project2_SimpleProxy
 {
     internal class ProxyRequestParser
     {
+        //^(?<method>\D+?)\s(?<url>.+?)\s(?<version>.+?)\r?\n(?<headers>(?:[^\r\n]+:\s[^\r\n]+\r?\n)*)/
+        private static Regex methodAndURLGetter = new Regex(@"^(?<method>[^\s]+)\s(?<url>[^\s]+)", RegexOptions.Compiled);
         private string requestString;
         public ProxyRequestParser(List<byte> allRequestBytes)
         {
             requestString = Encoding.UTF8.GetString(allRequestBytes.ToArray());
 
-            //Parse out the incoming request.
-            var lines = requestString.Split('\n');
-            var methodAndURLLine = lines[0];
-            var methodAndURL = methodAndURLLine.Split(' ');
-            var url = new Uri(methodAndURL[1]);
+            var match = methodAndURLGetter.Match(requestString) ?? throw new ArgumentException("Invalid request string.");
 
-            this.Method = methodAndURL[0];
+            this.Method = match.Groups["method"].Value;
 
-            this.Uri = url.DnsSafeHost;
+            var localurl = new Uri(match.Groups["url"].Value);
+            this.Uri = localurl.DnsSafeHost;
         }
 
         public string Method { get; private set; }
