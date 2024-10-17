@@ -10,9 +10,10 @@ namespace Project2_SimpleProxy
 {
     internal class ProxyServer
     {
+        private readonly HttpClient httpClient;
         public ProxyServer()
         {
-            
+            httpClient = new HttpClient();
         }
 
 
@@ -40,13 +41,27 @@ namespace Project2_SimpleProxy
                 var httpRequest = Encoding.UTF8.GetString(allClientBytesReceived.ToArray());
                 var requestParser = new ProxyRequestParser(allClientBytesReceived);
 
-                var serverResponseToHost = await GetTargetResponseAsync(allClientBytesReceived, requestParser.Uri);
+                var requestMessage = new HttpRequestMessage(new HttpMethod(requestParser.Method), requestParser.Uri);
+                var serverResponse = await httpClient.SendAsync(requestMessage);
 
-                Console.WriteLine("Writing response to client...");
+                var responseStream = await serverResponse.Content.ReadAsByteArrayAsync();
 
-                await clientSocket.SendAsync(serverResponseToHost.ToArray());
+                //int serverRead = 0;
+                //byte[] bytes = new byte[1024];
+                //while ((serverRead = await responseStream.ReadAsync(bytes)) > 0)
+                //{
+                //    await clientSocket.SendAsync(bytes);
+                //}
 
-                Console.WriteLine("Complete!\n");
+                await clientSocket.SendAsync(responseStream);
+
+                //var serverResponseToHost = await GetTargetResponseAsync(allClientBytesReceived, requestParser.Uri);
+
+                //Console.WriteLine("Writing response to client...");
+
+                //await clientSocket.SendAsync(serverResponseToHost.ToArray());
+
+                //Console.WriteLine("Complete!\n");
 
             }
         }

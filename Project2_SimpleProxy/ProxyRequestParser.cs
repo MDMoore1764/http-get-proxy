@@ -17,11 +17,9 @@ namespace Project2_SimpleProxy
             var lines = requestString.Split('\n');
             var methodAndURLLine = lines[0];
             var methodAndURL = methodAndURLLine.Split(' ');
-            var url = new Uri(methodAndURL[1]);
+            this.Uri = methodAndURL[1];
 
             this.Method = methodAndURL[0];
-
-            this.Uri = url.DnsSafeHost;
         }
 
         public string Method { get; private set; }

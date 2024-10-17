@@ -63,6 +63,7 @@ namespace Project2_SimpleProxy
 
         private static bool IsEndOfMessage(List<byte> buffer)
         {
+            //If has content length, use that. If is chunked, fetch all chunks
             return TryGetContentLength(buffer, out var headerIndex, out var contentLength)
                 && (contentLength == 0 ||
                     (buffer.Count - (headerIndex + END_OF_HEADERS_SEQUENCE.Length)) == contentLength);
