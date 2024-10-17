@@ -38,7 +38,7 @@ namespace Project2_SimpleProxy
             Console.WriteLine($"admin: accepted connection from '{((IPEndPoint)clientSocket.RemoteEndPoint!).Address}' at '{((IPEndPoint)clientSocket.RemoteEndPoint).Port}'");
 
             var clientSocketReader = new HttpSocketReader(clientSocket);
-            List<byte> allClientBytesReceived = await clientSocketReader.ReadAllBytesAsync();
+            List<byte> allClientBytesReceived = await clientSocketReader.ReadAllHttpRequestBytesAsync();
 
             var httpRequest = Encoding.UTF8.GetString(allClientBytesReceived.ToArray());
             var requestParser = new ProxyRequestParser(allClientBytesReceived);
@@ -81,7 +81,7 @@ namespace Project2_SimpleProxy
 
             var httpSocketReader = new HttpSocketReader(httpSocket);
 
-            return await httpSocketReader.ReadAllBytesAsync();
+            return await httpSocketReader.ReadAllHttpResponseBytesAsync();
         }
     }
 }
