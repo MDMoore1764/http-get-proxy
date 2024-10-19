@@ -9,7 +9,7 @@ namespace Project2_SimpleProxy
 {
     internal class ProxyRequestParser
     {
-        private static Regex methodAndURLGetter = new Regex(@"^(?<method>[^\s]+)\s(?<url>[^\s]+)", RegexOptions.Compiled);
+        private static Regex methodAndURLGetter = new Regex(@"^(?<method>[^\s]+)\s(?<url>[^\s:]+)(?::(?<port>\d+))?$", RegexOptions.Compiled);
         private string requestString;
         public ProxyRequestParser(List<byte> allRequestBytes)
         {
@@ -18,6 +18,10 @@ namespace Project2_SimpleProxy
             var match = methodAndURLGetter.Match(requestString) ?? throw new ArgumentException("Invalid request string.");
 
             this.Method = match.Groups["method"].Value;
+
+            if (match.Groups.ContainsKey("port")){
+                this.Port = int.Parse(match.Groups["port"].Value);
+            }
 
             var localurl = new Uri(match.Groups["url"].Value);
             this.Uri = localurl.DnsSafeHost;
@@ -28,5 +32,6 @@ namespace Project2_SimpleProxy
         public string Method { get; private set; }
         public string Uri { get; private set; }
         public string Request { get; private set; }
+        public int? Port { get; private set; }
     }
 }
