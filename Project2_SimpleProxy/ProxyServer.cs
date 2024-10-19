@@ -45,14 +45,22 @@ namespace Project2_SimpleProxy
 
             try
             {
-                var serverResponseToHost = await GetTargetResponseAsync(requestParser.Request, requestParser.Uri);
+                byte[] serverResponse;
+
+                if (requestParser.Port.HasValue)
+                {
+                    serverResponse = (await GetTargetResponseAsync(requestParser.Request, requestParser.Uri, requestParser.Port.Value)).ToArray();
+                }
+                else
+                {
+                    serverResponse = (await GetTargetResponseAsync(requestParser.Request, requestParser.Uri)).ToArray();
+                }
 
                 Console.WriteLine("Writing response to client...");
 
+                var response = Encoding.UTF8.GetString(serverResponse.ToArray());
 
-                var response = Encoding.UTF8.GetString(serverResponseToHost.ToArray());
-
-                await clientSocket.SendAsync(serverResponseToHost.ToArray());
+                await clientSocket.SendAsync(serverResponse.ToArray());
 
                 Console.WriteLine("Complete!\n");
             }
