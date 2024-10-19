@@ -9,7 +9,7 @@ namespace Project2_SimpleProxy
 {
     internal class ProxyRequestParser
     {
-        private static Regex methodAndURLGetter = new Regex(@"^(?<method>[^\s]+)\s(?<url>[^\s:]+)(?::(?<port>\d+))?$", RegexOptions.Compiled);
+        private static Regex methodAndURLGetter = new Regex(@"^(?<method>[^\s]+)\shttp:\/\/(?<url>[^:\s]+):?(?<port>\d+)?", RegexOptions.Compiled);
         private string requestString;
         public ProxyRequestParser(List<byte> allRequestBytes)
         {
