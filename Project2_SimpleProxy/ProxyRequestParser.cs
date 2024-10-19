@@ -21,9 +21,12 @@ namespace Project2_SimpleProxy
 
             var localurl = new Uri(match.Groups["url"].Value);
             this.Uri = localurl.DnsSafeHost;
+
+            this.Request = requestString.Replace("\r\n\r\n", "\nConnection: close\r\n\r\n");
         }
 
         public string Method { get; private set; }
         public string Uri { get; private set; }
+        public string Request { get; private set; }
     }
 }
