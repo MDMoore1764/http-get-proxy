@@ -39,15 +39,18 @@ namespace Project2_SimpleProxy
             Console.WriteLine($"admin: accepted connection from '{((IPEndPoint)clientSocket.RemoteEndPoint!).Address}' at '{((IPEndPoint)clientSocket.RemoteEndPoint).Port}'");
 
             var clientSocketReader = new HttpSocketReader(clientSocket);
-            List<byte> allClientBytesReceived = await clientSocketReader.ReadAllBytesAsync();
+            List<byte> allClientBytesReceived = await clientSocketReader.ReadHeaderBytesAsync();
 
             var requestParser = new ProxyRequestParser(allClientBytesReceived);
 
             try
             {
-                var serverResponseToHost = await GetTargetResponseAsync(allClientBytesReceived, requestParser.Uri);
+                var serverResponseToHost = await GetTargetResponseAsync(requestParser.Request, requestParser.Uri);
 
                 Console.WriteLine("Writing response to client...");
+
+
+                var response = Encoding.UTF8.GetString(serverResponseToHost.ToArray());
 
                 await clientSocket.SendAsync(serverResponseToHost.ToArray());
 
@@ -66,7 +69,7 @@ namespace Project2_SimpleProxy
             }
         }
 
-        private async Task<List<byte>> GetTargetResponseAsync(List<byte> clientRequestBytes, string targetURL, int targetPort = 80)
+        private async Task<List<byte>> GetTargetResponseAsync(string request, string targetURL, int targetPort = 80)
         {
             var targetHostEntry = await Dns.GetHostEntryAsync(targetURL);
             var targetAddress = targetHostEntry.AddressList[0];
@@ -78,7 +81,7 @@ namespace Project2_SimpleProxy
 
             Console.WriteLine($"Connected to '{targetIPEndpoint.Address}' at '{targetIPEndpoint.Port}'");
 
-            await httpSocket.SendAsync(clientRequestBytes.ToArray());
+            await httpSocket.SendAsync(Encoding.UTF8.GetBytes(request));
 
             var httpSocketReader = new HttpSocketReader(httpSocket);
 
