@@ -69,7 +69,7 @@ namespace Project2_SimpleProxy
         }
 
 
-        public async Task<List<byte>> ReadAllBytesAsync()
+        public async Task<List<byte>> ReadHeaderBytesAsync()
         {
             List<byte> allClientBytesReceived = new List<byte>();
 
@@ -89,9 +89,24 @@ namespace Project2_SimpleProxy
             return allClientBytesReceived;
         }
 
+        public async Task<List<byte>> ReadAllBytesAsync()
+        {
+            List<byte> allClientBytesReceived = new List<byte>();
+
+            byte[] clientBuffer = new byte[socket.ReceiveBufferSize];
+
+            int clientReceived = 0;
+            while ((clientReceived = await socket.ReceiveAsync(clientBuffer, SocketFlags.None)) > 0)
+            {
+                allClientBytesReceived.AddRange(clientBuffer.AsSpan()[..clientReceived]);
+            }
+
+            return allClientBytesReceived;
+        }
+
         public async Task<string> ReadAsStringAsync()
         {
-            var bytes = await ReadAllBytesAsync();
+            var bytes = await ReadHeaderBytesAsync();
             return Encoding.UTF8.GetString(bytes.ToArray());
         }
     }
