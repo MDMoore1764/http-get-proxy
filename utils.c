@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <fcntl.h>
+#include <stdlib.h>
 #include <string.h>
 #include <strings.h>
 #include <sys/types.h>
@@ -10,11 +10,16 @@
 #include <time.h>
 #include <errno.h>
 #include "utils.h"
+#include <sys/select.h>
+
+#include <fcntl.h>
+#include <unistd.h>
 
 #define MAXNAMELEN 256
 #define MAXMSGLEN 8000
 #define RESPMSGLEN 65536
-#define ushort unsigned short
+
+#define ushort unsigned short int
 
 /*--------------------------------------------------------------------*/
 
@@ -125,7 +130,7 @@ int startserver()
     /* ready to accept requests */
     printf("admin: started server on '%s' at '%hu'\n",
            servhost, servport);
-    return (sd);
+    return sd;
 }
 
 /*----------------------------------------------------------------*/
@@ -181,7 +186,7 @@ int connecttoserver(char *servhost, ushort servport)
     /* succesful. return socket descriptor */
     printf("admin: connected to server on '%s' at '%hu' thru '%hu'\n",
            servhost, servport, clientport);
-    return (sd);
+    return sd;
 }
 /*----------------------------------------------------------------*/
 
@@ -226,14 +231,50 @@ int sendrequest(int sd)
 
     if (servhost && servport)
     {
-        /* TODO: establish new connection to http server on behalf of the user
-         * use connecttoserver() and write() */
+        int portNumber = atoi(servport);
 
+        /*I connect to the server here. A socket descriptor value of -1 indicates failure. I capture this with newsd < 0.
+          I don't post a message, since connecttoserver already posts one. Instead, I let caller handle this error. */
+        newsd = connecttoserver(servhost, portNumber);
+        if (newsd < 0)
+        {
+            free(msgcp);
+            free(msg);
+            return -1;
+        }
+
+        /*I attempt to write the http message, msg, to the server.
+        According to the documentation, a a negative value is an error:
+        https://pubs.opengroup.org/onlinepubs/009696699/functions/write.html */
+
+        int bytesWritten = write(newsd, msg, len);
+        if (bytesWritten < 0)
+        {
+            fprintf(stderr, "error : unable to send request to server\n");
+            close(newsd);
+            free(msgcp);
+            free(msg);
+            return -1;
+        }
+
+        /*According to the same documentation, if the write operation is interrupted after having written data,
+        it will return the number of bytes written.*/
+
+        if (bytesWritten < len)
+        {
+            fprintf(stderr, "error : the request was interrupted\n");
+            close(newsd);
+            free(msgcp);
+            free(msg);
+            return -1;
+        }
+
+        /*Success! Return the new socket descriptor. */
         free(msgcp);
         free(msg);
-        /*TODO: return newly created socket file descriptor */;
+        return newsd;
     }
-    return (0);
+    return 0;
 }
 
 char *readresponse(int sd)
@@ -246,10 +287,37 @@ char *readresponse(int sd)
         fprintf(stderr, "error : unable to malloc\n");
         return (NULL);
     }
-    /* TODO: read response message back and store in msg
-     * use read(), could create other local variables if necessary */
 
-    return (msg);
+    /* Create the bytesRead variable to store the number of bytes read, and totalBytesRead to keep track of the running total of bytes read (our stream position). */
+    int bytesRead;
+    int totalBytesRead = 0;
+
+    /* read sd.
+     * The buffer is msg, offset by the total bytes already read (msg + totalBytesRead).
+     * The stream offset is the maximum response message length - the total number of bytes read so far - 1
+     */
+
+    while ((bytesRead = read(sd, msg + totalBytesRead, RESPMSGLEN - totalBytesRead - 1)) > 0)
+    {
+        totalBytesRead += bytesRead;
+
+        /* If we hit the max message length - 1, break! We need to be able to null terminate this response so we know where it ends, since length isn't returned here, and since this is how strings are delineated. */
+        if (totalBytesRead >= RESPMSGLEN - 1)
+            break;
+    }
+
+    /* If bytes read is -1, then an error occurred.*/
+    if (bytesRead < 0)
+    {
+        free(msg);
+        fprintf(stderr, "error : unable to read response\n");
+        return (NULL);
+    }
+
+    /* Null terminate the response string so that we know where the string of characters ends. */
+    msg[totalBytesRead] = '\0';
+
+    return msg;
 }
 
 /* Forward response message back to user */
