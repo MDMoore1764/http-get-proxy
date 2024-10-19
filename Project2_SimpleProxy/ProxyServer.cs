@@ -5,6 +5,7 @@ using System.Net.Sockets;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
 
 namespace Project2_SimpleProxy
 {
@@ -18,7 +19,7 @@ namespace Project2_SimpleProxy
 
         public async Task RunServerAsync(int fixedPort = 0)
         {
-            using Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            using Socket socket = new(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
             socket.Bind(new IPEndPoint(IPAddress.Any, fixedPort));
 
@@ -28,8 +29,8 @@ namespace Project2_SimpleProxy
 
             while (true)
             {
-                using var clientSocket = await socket.AcceptAsync();
-                await HandleClientAsync(clientSocket);
+                var clientSocket = await socket.AcceptAsync();
+                _ = Task.Run(() => HandleClientAsync(clientSocket));
             }
         }
 
@@ -40,7 +41,6 @@ namespace Project2_SimpleProxy
             var clientSocketReader = new HttpSocketReader(clientSocket);
             List<byte> allClientBytesReceived = await clientSocketReader.ReadAllBytesAsync();
 
-            var httpRequest = Encoding.UTF8.GetString(allClientBytesReceived.ToArray());
             var requestParser = new ProxyRequestParser(allClientBytesReceived);
 
             try
@@ -61,8 +61,9 @@ namespace Project2_SimpleProxy
                 Console.WriteLine("Something went wrong!");
                 Console.WriteLine(e.ToString());
             }
-
-
+            finally {
+                clientSocket.Dispose();
+            }
         }
 
         private async Task<List<byte>> GetTargetResponseAsync(List<byte> clientRequestBytes, string targetURL, int targetPort = 80)

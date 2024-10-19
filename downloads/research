@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+  <title>Research | Case School of Engineering | Case Western Reserve University</title>
+  <link rel="shortcut icon" href="https://engineering.case.edu/sites/default/files/favicon_0.ico" type="image/vnd.microsoft.icon" />
+<meta charset="utf-8" />
+<meta http-equiv="x-ua-compatible" content="ie=edge, chrome=1" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="cleartype" content="on" />
+<meta name="description" content="Artificial Intelligence, Machine Learning and Robotics                   Augmented/Virtual Reality and Human-Machine Interfaces                   Communications and Networks                   Computer Architectures and Embedded Systems                   Connected Devices and Systems, Wearable and Wireless Health                   Electronics and Micro/Nano Systems" />
+<meta name="abstract" content="Artificial Intelligence, Machine Learning and Robotics                   Augmented/Virtual Reality and Human-Machine Interfaces                   Communications and Networks                   Computer Architectures and Embedded Systems                   Connected Devices and Systems, Wearable and Wireless Health                   Electronics and Micro/Nano Systems              Energy Systems and Grid Modernization                   Systems Modeling &amp; Complex Systems Biology              ,     Latest Electrical, Computer, and Systems Engineering Research News                       Jan. 19, 2022     Cleveland-based RoadPrintz Inc. receives $1M from National Science Foundation to advance mobile robotic pavement-marking system                    Feb. 23, 2021     Making the ClotChip military ready                    Dec. 14, 2020     Case Coulter Translational Research Partnership awards $1.1 million in funding and support for promising biomedical engineering university technologies               View All Electrical, Computer, and Systems Engineering Research News     ,     Institutes, centers and labs related to Electrical, Computer, and Systems Engineering                     Integrated Robotics Institute    Using a cross-discipline approach to bring creativity, knowledge and expertise to the creation of robotic systems, with a specific focus on exploration, intelligence, movement, manufacturing and health care              Institute for Smart, Secure and Connected Systems (ISSACS)    Join ISSACS and the University Industry Demonstration Partnership for an exciting workshop on October 1!             SaPHaRI Lab    In the Social and Physical Human-Robot Interaction (SaPHaRI) Lab at Case Western Reserve University’s Case School of Engineering, we focus on social and physical human-robot interaction.             Enhanced Robotic Interfaces and Experiences (ERIE) Lab    The Enhanced Robotic Interfaces and Experiences (ERIE) Lab’s mission is to develop integrated and intelligent multi-modal sensing and feedback interfaces that enable humans to control robots intuitively and effectively             BioMicroSystems Laboratory    Develops next-generation implantable device technologies to restore human function by interfacing with the nervous system, and point-of-care monitoring platforms for personalized healthcare.             Integrated Circuits and Sensor Physics Lab    Explores novel sensor physics and electronics to create precise, miniaturized and low-cost instrumentation that closely integrates sensing, computation and actuation.             Energy Information Dashboard    Trains newcomers on the fundamentals of wholesale electricity and futures markets, and develops the first electricity market simulator aimed at pedagogical use.             Koyuturk Group    Develops algorithms and computational solutions to problems in systems biology, computational genomics and other applications that involve complex networks.             Sensing and Interaction Laboratory    Focuses on research in mobile health, wearable sensor technologies, deep learning on mobile platforms and the Internet of Things.             Center for Control and Energy Systems    Develops advanced control engineering solutions for renewable energy, wind turbines, power systems, water treatment plants, radio telescopes, spacecraft and industrial applications.             Fietkiewicz Lab    Applies computational modeling to study neuroscience and develops high-performance computing and parallel programming methods for scientific applications.             Galan Lab    Investigates systems biology and neuroscience, including the link between heart and brain in epilepsy, and the development of biomarkers for autism from brain activity.             Feng Research Group    Develops nanoscale devices for computing building blocks using emerging semiconductors, as well as silicon carbide materials, hardware for harsh environments, and biomedical, photonic and quantum technologies.             Medical Robotics and Computer Integrated Surgery Laboratory    Develops medical applications of robotics and other information technologies, specifically robotic systems for surgery and interventional medicine, human-machine interfaces, haptics, virtual reality surgical simulators and modeling and simulation of complex biological systems." />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="https://engineering.case.edu/electrical-computer-and-systems-engineering/research" />
+<link rel="shortlink" href="https://engineering.case.edu/node/73248" />
+<meta property="og:site_name" content="Case School of Engineering" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Research | Case School of Engineering | Case Western Reserve University" />
+<meta property="og:url" content="https://engineering.case.edu/electrical-computer-and-systems-engineering/research" />
+<meta property="og:description" content="Artificial Intelligence, Machine Learning and Robotics                   Augmented/Virtual Reality and Human-Machine Interfaces                   Communications and Networks                   Computer Architectures and Embedded Systems                   Connected Devices and Systems, Wearable and Wireless Health                   Electronics and Micro/Nano Systems              Energy Systems and Grid Modernization                   Systems Modeling &amp; Complex Systems Biology              ,     Latest Electrical, Computer, and Systems Engineering Research News                       Jan. 19, 2022     Cleveland-based RoadPrintz Inc. receives $1M from National Science Foundation to advance mobile robotic pavement-marking system                    Feb. 23, 2021     Making the ClotChip military ready                    Dec. 14, 2020     Case Coulter Translational Research Partnership awards $1.1 million in funding and support for promising biomedical engineering university technologies               View All Electrical, Computer, and Systems Engineering Research News     ,     Institutes, centers and labs related to Electrical, Computer, and Systems Engineering                     Integrated Robotics Institute    Using a cross-discipline approach to bring creativity, knowledge and expertise to the creation of robotic systems, with a specific focus on exploration, intelligence, movement, manufacturing and health care              Institute for Smart, Secure and Connected Systems (ISSACS)    Join ISSACS and the University Industry Demonstration Partnership for an exciting workshop on October 1!             SaPHaRI Lab    In the Social and Physical Human-Robot Interaction (SaPHaRI) Lab at Case Western Reserve University’s Case School of Engineering, we focus on social and physical human-robot interaction.             Enhanced Robotic Interfaces and Experiences (ERIE) Lab    The Enhanced Robotic Interfaces and Experiences (ERIE) Lab’s mission is to develop integrated and intelligent multi-modal sensing and feedback interfaces that enable humans to control robots intuitively and effectively             BioMicroSystems Laboratory    Develops next-generation implantable device technologies to restore human function by interfacing with the nervous system, and point-of-care monitoring platforms for personalized healthcare.             Integrated Circuits and Sensor Physics Lab    Explores novel sensor physics and electronics to create precise, miniaturized and low-cost instrumentation that closely integrates sensing, computation and actuation.             Energy Information Dashboard    Trains newcomers on the fundamentals of wholesale electricity and futures markets, and develops the first electricity market simulator aimed at pedagogical use.             Koyuturk Group    Develops algorithms and computational solutions to problems in systems biology, computational genomics and other applications that involve complex networks.             Sensing and Interaction Laboratory    Focuses on research in mobile health, wearable sensor technologies, deep learning on mobile platforms and the Internet of Things.             Center for Control and Energy Systems    Develops advanced control engineering solutions for renewable energy, wind turbines, power systems, water treatment plants, radio telescopes, spacecraft and industrial applications.             Fietkiewicz Lab    Applies computational modeling to study neuroscience and develops high-performance computing and parallel programming methods for scientific applications.             Galan Lab    Investigates systems biology and neuroscience, including the link between heart and brain in epilepsy, and the development of biomarkers for autism from brain activity.             Feng Research Group    Develops nanoscale devices for computing building blocks using emerging semiconductors, as well as silicon carbide materials, hardware for harsh environments, and biomedical, photonic and quantum technologies.             Medical Robotics and Computer Integrated Surgery Laboratory    Develops medical applications of robotics and other information technologies, specifically robotic systems for surgery and interventional medicine, human-machine interfaces, haptics, virtual reality surgical simulators and modeling and simulation of complex biological systems." />
+<meta property="og:updated_time" content="2024-02-01T09:09:13-05:00" />
+<meta property="og:latitude" content="41.5034086" />
+<meta property="og:longitude" content="-81.6088122" />
+<meta property="og:street_address" content="10900 Euclid Ave." />
+<meta name="twitter:card" content="summary" />
+<meta property="og:locality" content="Cleveland" />
+<meta property="og:region" content="Ohio" />
+<meta name="twitter:creator" content="@cwru" />
+<meta property="og:postal_code" content="44106-7027" />
+<meta property="og:country_name" content="United States" />
+<meta name="twitter:title" content="Research | Case School of Engineering | Case Western Reserve" />
+<meta name="twitter:url" content="https://engineering.case.edu/electrical-computer-and-systems-engineering/research" />
+<meta name="twitter:description" content="Artificial Intelligence, Machine Learning and Robotics                   Augmented/Virtual Reality and Human-Machine Interfaces                   Communications and Networks" />
+<meta property="article:published_time" content="2020-01-24T08:42:39-05:00" />
+<meta property="article:modified_time" content="2024-02-01T09:09:13-05:00" />
+    <link rel="shortcut icon" type="image/x-icon" href="https://engineering.case.edu/sites/default/files/favicon_0.ico" />
+  <style type="text/css" media="all">
+@import url("https://engineering.case.edu/modules/comment/comment.css?sllqyi");
+@import url("https://engineering.case.edu/sites/all/modules/custom/cse_documentation/cse_documentation.css?sllqyi");
+@import url("https://engineering.case.edu/sites/all/modules/contrib/date/date_api/date.css?sllqyi");
+@import url("https://engineering.case.edu/sites/default/files/css/cse_grid.css?sllqyi");
+@import url("https://engineering.case.edu/sites/all/modules/contrib/ckeditor/css/ckeditor.css?sllqyi");
+@import url("https://engineering.case.edu/sites/all/modules/contrib/entity_embed/css/entity_embed.css?sllqyi");
+</style>
+<style type="text/css" media="all">
+@import url("https://engineering.case.edu/sites/all/modules/contrib/panels/css/panels.css?sllqyi");
+@import url("https://engineering.case.edu/sites/all/libraries/fontello/css/fontello.css?sllqyi");
+</style>
+<style type="text/css" media="all">
+@import url("https://engineering.case.edu/sites/all/themes/contrib/center/css/override/kill/ctools.css?sllqyi");
+@import url("https://engineering.case.edu/sites/all/themes/contrib/center/css/override/kill/field.css?sllqyi");
+@import url("https://engineering.case.edu/sites/all/themes/contrib/center/css/override/kill/node.css?sllqyi");
+@import url("https://engineering.case.edu/sites/all/themes/contrib/center/css/override/kill/system.messages.css?sllqyi");
+@import url("https://engineering.case.edu/sites/all/themes/contrib/center/css/override/kill/system.menus.css?sllqyi");
+@import url("https://engineering.case.edu/sites/all/themes/contrib/center/css/override/kill/user.css?sllqyi");
+@import url("https://engineering.case.edu/sites/all/themes/contrib/center/css/override/kill/views.css?sllqyi");
+@import url("https://engineering.case.edu/sites/all/themes/contrib/center/css/override/kill/field_collection.theme.css?sllqyi");
+@import url("https://engineering.case.edu/sites/all/themes/contrib/center/css/override/keep/system.base.css?sllqyi");
+@import url("https://engineering.case.edu/sites/all/themes/contrib/center/css/override/keep/system.theme.css?sllqyi");
+@import url("https://engineering.case.edu/sites/all/themes/contrib/center/css/override/keep/search.css?sllqyi");
+@import url("https://engineering.case.edu/sites/all/themes/contrib/center/css/override/keep/vertical-tabs.css?sllqyi");
+@import url("https://engineering.case.edu/sites/all/themes/custom/cse/build/css/screen.css?sllqyi");
+</style>
+  <script type="text/javascript" src="https://engineering.case.edu/sites/default/files/js/js_hpVUbIykg3uog5_2MWKL5OrydD8gsSGT3niuvykS_po.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+window.jQuery || document.write("<script src='/sites/all/modules/contrib/jquery_update/replace/jquery/1.12/jquery.min.js'>\x3C/script>")
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://engineering.case.edu/sites/default/files/js/js_GOikDsJOX04Aww72M-XK1hkq4qiL_1XgGsRdkL0XlDo.js"></script>
+<script type="text/javascript" src="https://engineering.case.edu/sites/default/files/js/js_onbE0n0cQY6KTDQtHO_E27UBymFC-RuqypZZ6Zxez-o.js"></script>
+<script type="text/javascript" src="https://engineering.case.edu/sites/default/files/js/js_waP91NpgGpectm_6Y2XDEauLJ8WCSCBKmmA87unpp2E.js"></script>
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-PFQFRJBSH5"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments)};gtag("js", new Date());gtag("set", "developer_id.dMDhkMT", true);gtag("config", "G-PFQFRJBSH5", {"groups":"default","anonymize_ip":true});
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://engineering.case.edu/sites/default/files/js/js_owAcm-t0V5jzWY1Bfwn6aoAwd7GyLKzQ58_G9MRFbLQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","setHasJsCookie":0,"ajaxPageState":{"theme":"cse","theme_token":"ImqKPLO1RPuPNtntvfi2IQUmlH53zD9TlnC0aAYLG9I","js":{"public:\/\/google_tag\/google_tag.script.js":1,"\/\/ajax.googleapis.com\/ajax\/libs\/jquery\/1.12.4\/jquery.min.js":1,"0":1,"misc\/jquery-extend-3.4.0.js":1,"misc\/jquery-html-prefilter-3.5.0-backport.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/contrib\/jquery_update\/js\/jquery_browser.js":1,"misc\/form-single-submit.js":1,"sites\/all\/modules\/contrib\/google_analytics\/googleanalytics.js":1,"https:\/\/www.googletagmanager.com\/gtag\/js?id=G-PFQFRJBSH5":1,"1":1,"sites\/all\/themes\/custom\/cse\/build\/js\/main.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/custom\/cse_documentation\/cse_documentation.css":1,"sites\/all\/modules\/contrib\/date\/date_api\/date.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/contrib\/views\/css\/views.css":1,"public:\/\/css\/cse_grid.css":1,"sites\/all\/modules\/contrib\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/contrib\/entity_embed\/css\/entity_embed.css":1,"sites\/all\/modules\/contrib\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/contrib\/panels\/css\/panels.css":1,"sites\/all\/libraries\/fontello\/css\/fontello.css":1,"sites\/all\/themes\/contrib\/center\/css\/override\/kill\/ctools.css":1,"sites\/all\/themes\/contrib\/center\/css\/override\/kill\/field.css":1,"sites\/all\/themes\/contrib\/center\/css\/override\/kill\/node.css":1,"sites\/all\/themes\/contrib\/center\/css\/override\/kill\/system.messages.css":1,"sites\/all\/themes\/contrib\/center\/css\/override\/kill\/system.menus.css":1,"sites\/all\/themes\/contrib\/center\/css\/override\/kill\/user.css":1,"sites\/all\/themes\/contrib\/center\/css\/override\/kill\/views.css":1,"sites\/all\/themes\/contrib\/center\/css\/override\/kill\/field_collection.theme.css":1,"sites\/all\/themes\/contrib\/center\/css\/override\/keep\/system.base.css":1,"sites\/all\/themes\/contrib\/center\/css\/override\/keep\/system.theme.css":1,"sites\/all\/themes\/contrib\/center\/css\/override\/keep\/search.css":1,"sites\/all\/themes\/contrib\/center\/css\/override\/keep\/vertical-tabs.css":1,"sites\/all\/themes\/custom\/cse\/build\/css\/screen.css":1}},"urlIsAjaxTrusted":{"\/electrical-computer-and-systems-engineering\/research":true},"googleanalytics":{"account":["G-PFQFRJBSH5"],"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+</head>
+
+<body class="html not-front not-logged-in one-sidebar sidebar-first page-node page-node- page-node-73248 node-type-sub-site-page" >
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6NQD8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><div id="page" class="page sub-site--department">
+
+  <header id="header">
+      <div id="utility" class="utility">
+      <div class="utility--inner l--constrained-padded clearfix">
+        <div class="page-logo">
+        <a href="//case.edu/">
+					<img src="https://dudbm6bcnmy8e.cloudfront.net/cwru/img/cwru_logo_primary_white.svg" onerror="javascript:this.src='https://dudbm6bcnmy8e.cloudfront.net/cwru/img/cwru_logo_primary_white.png';this.style.margin='-12px 0px';this.style.minHeight='55px'" alt="Case Western Reserve University" class="logo-default" title="Case Western Reserve University">
+        </a>
+      </div>
+            <div id="block-menu-block-cse-global-elements-utility" class="block block-menu-block">
+
+      
+  <div  class="block-content block-content">
+    <div class="menu-block-wrapper menu-block-cse_global_elements-utility menu-name-menu-utility-menu parent-mlid-0 menu-level-1">
+  <ul class="nav"><li class="first expanded menu-mlid-547 nav-item"><a href="/departments-menu" title="" class="nav-link">Departments</a><ul class="nav"><li class="first leaf menu-mlid-548 nav-item"><a href="/ebme" class="nav-link">Biomedical Engineering</a></li>
+<li class="leaf menu-mlid-549 nav-item"><a href="/eche" class="nav-link">Chemical &amp; Biomolecular Engineering</a></li>
+<li class="leaf menu-mlid-550 nav-item"><a href="/eciv" title="" class="nav-link">Civil and Environmental Engineering</a></li>
+<li class="leaf menu-mlid-7927 nav-item"><a href="/computer-and-data-sciences" title="" class="nav-link">Computer &amp; Data Sciences</a></li>
+<li class="leaf menu-mlid-551 nav-item"><a href="https://engineering.case.edu/electrical-computer-and-systems-engineering" title="" class="nav-link">Electrical, Computer and Systems Engineering</a></li>
+<li class="leaf menu-mlid-552 nav-item"><a href="/emac" class="nav-link">Macromolecular Science &amp; Engineering</a></li>
+<li class="leaf menu-mlid-553 nav-item"><a href="/emse" class="nav-link">Materials Science &amp; Engineering</a></li>
+<li class="last leaf menu-mlid-554 nav-item"><a href="/mechanical-and-aerospace-engineering" title="" class="nav-link">Mechanical &amp; Aerospace Engineering</a></li>
+</ul></li>
+<li class="leaf menu-mlid-555 nav-item"><a href="https://engineering.case.edu/csefacultystaff" class="nav-link nav-link--intranet">Intranet Login</a></li>
+<li class="last leaf menu-mlid-2122 nav-item"><a href="/search" title="" class="nav-link nav-link--search">Search</a></li>
+</ul></div>
+  </div>
+</div>
+<div id="block-search-form" class="block block-search">
+
+      
+  <div  class="block-content block-content">
+    <form action="/electrical-computer-and-systems-engineering/research" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+      <h2 class="element-invisible">Search form</h2>
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="form-item-label element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." placeholder="Search" type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-BEChhTHiFL-tSWOK9uqfQcaD2KW4Jfl5PLvsVsYdj98" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form>  </div>
+</div>
+      </div>
+    </div>
+    <div class="header--inner l--constrained-padded clearfix">
+    <div id="branding">
+      <h1><a href="/" title="Home" rel="home" id="logo">Case School of Engineering</a></h1>
+          </div>
+    <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+    <label for="nav-trigger">
+
+      <svg id="mobile-open" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve">
+        <rect width="30" height="4"/>
+        <rect y="20" width="30" height="4"/>
+        <rect y="10" width="30" height="4"/>
+      </svg>
+
+      <svg id="mobile-close" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="25px" height="25px" viewBox="0 0 357 357" enable-background="new 0 0 30 30" xml:space="preserve">
+          <polygon points="357,35.7 321.3,0 178.5,142.8 35.7,0 0,35.7 142.8,178.5 0,321.3 35.7,357 178.5,214.2 321.3,357 357,321.3 214.2,178.5"/>
+      </svg>
+      <span class="mobile-menu">Menu</span>
+    </label>
+          <div class="menu-wrapper">
+            <div id="block-menu-block-cse-global-elements-main" class="block block-menu-block">
+
+      
+  <div  class="block-content block-content">
+    <div class="menu-block-wrapper menu-block-cse_global_elements-main menu-name-main-menu parent-mlid-0 menu-level-1">
+  <ul class="nav nav--main"><li class="first leaf has-children menu-mlid-1479 nav-item"><a href="/academics" class="nav-link">Academics</a></li>
+<li class="leaf has-children menu-mlid-1284 nav-item"><a href="/research" title="" class="nav-link">Research</a></li>
+<li class="leaf has-children menu-mlid-4700 nav-item"><a href="/outside-classroom/global-opportunities" class="nav-link">Global Opportunities</a></li>
+<li class="leaf has-children menu-mlid-4522 nav-item"><a href="/outside-classroom" class="nav-link">Outside The Classroom</a></li>
+<li class="leaf has-children menu-mlid-1478 nav-item"><a href="/about" class="nav-link">About</a></li>
+<li class="last leaf has-children menu-mlid-4518 nav-item"><a href="/connect" class="nav-link">Connect</a></li>
+</ul></div>
+  </div>
+</div>
+<div id="block-menu-block-cse-global-elements-utility--2" class="block block-menu-block">
+
+      
+  <div  class="block-content block-content">
+    <div class="menu-block-wrapper menu-block-cse_global_elements-utility menu-name-menu-utility-menu parent-mlid-0 menu-level-1">
+  <ul class="nav"><li class="first expanded menu-mlid-547 nav-item"><a href="/departments-menu" title="" class="nav-link">Departments</a><ul class="nav"><li class="first leaf menu-mlid-548 nav-item"><a href="/ebme" class="nav-link">Biomedical Engineering</a></li>
+<li class="leaf menu-mlid-549 nav-item"><a href="/eche" class="nav-link">Chemical &amp; Biomolecular Engineering</a></li>
+<li class="leaf menu-mlid-550 nav-item"><a href="/eciv" title="" class="nav-link">Civil and Environmental Engineering</a></li>
+<li class="leaf menu-mlid-7927 nav-item"><a href="/computer-and-data-sciences" title="" class="nav-link">Computer &amp; Data Sciences</a></li>
+<li class="leaf menu-mlid-551 nav-item"><a href="https://engineering.case.edu/electrical-computer-and-systems-engineering" title="" class="nav-link">Electrical, Computer and Systems Engineering</a></li>
+<li class="leaf menu-mlid-552 nav-item"><a href="/emac" class="nav-link">Macromolecular Science &amp; Engineering</a></li>
+<li class="leaf menu-mlid-553 nav-item"><a href="/emse" class="nav-link">Materials Science &amp; Engineering</a></li>
+<li class="last leaf menu-mlid-554 nav-item"><a href="/mechanical-and-aerospace-engineering" title="" class="nav-link">Mechanical &amp; Aerospace Engineering</a></li>
+</ul></li>
+<li class="leaf menu-mlid-555 nav-item"><a href="https://engineering.case.edu/csefacultystaff" class="nav-link nav-link--intranet">Intranet Login</a></li>
+<li class="last leaf menu-mlid-2122 nav-item"><a href="/search" title="" class="nav-link nav-link--search">Search</a></li>
+</ul></div>
+  </div>
+</div>
+<div id="block-search-form--2" class="block block-search">
+
+      
+  <div  class="block-content block-content">
+    <form action="/electrical-computer-and-systems-engineering/research" method="post" id="search-block-form--2" accept-charset="UTF-8"><div><div class="container-inline">
+      <h2 class="element-invisible">Search form</h2>
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="form-item-label element-invisible" for="edit-search-block-form--4">Search </label>
+ <input title="Enter the terms you wish to search for." placeholder="Search" type="text" id="edit-search-block-form--4" name="search_block_form" value="" size="15" maxlength="128" class="form-text" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions--2"><input type="submit" id="edit-submit--2" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-yRBTBABYd8MDLlmYq_hRlxZSSJHlo9T33Ibh_Gd79gk" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form>  </div>
+</div>
+        </div>
+      </div>
+        <div id="subsite-header">
+        <div id="subsite-branding" class="l--constrained-padded clearfix">
+            <h1><a href="/electrical-computer-and-systems-engineering" id="subsite-logo">Electrical, Computer, and Systems Engineering</a></h1>
+        </div>
+    </div>
+        </header>
+
+
+  <div id="main">
+
+      
+              <div id="above-content">
+          <div class="l--constrained">
+                <nav class="sub-site--menu"><h3 class="sub-site--menu-title"><a href="/electrical-computer-and-systems-engineering">Electrical, Computer, and Systems Engineering</a></h3><ul class="nav">
+<li class="entity entity-menu-item menu-item-menu-item clearfix" about="/menu_item/menu_item/37" typeof="">
+  <a href="/electrical-computer-and-systems-engineering/academics">Academics</a>
+  </li>
+
+
+<li class="entity entity-menu-item menu-item-menu-item clearfix" about="/menu_item/menu_item/302" typeof="">
+  <a href="/electrical-computer-and-systems-engineering/research">Research</a>
+      <ul class="nav nav--sub-nav">
+      
+<li class="entity entity-menu-item menu-item-menu-item clearfix" about="/menu_item/menu_item/326" typeof="">
+  <a href="https://engineering.case.edu/electrical-computer-and-systems-engineering/research/artificial-intelligence-machine-learning-and">Artificial Intelligence, Machine Learning and Robotics</a>
+  </li>
+
+
+<li class="entity entity-menu-item menu-item-menu-item clearfix" about="/menu_item/menu_item/327" typeof="">
+  <a href="https://engineering.case.edu/electrical-computer-and-systems-engineering/research/electronics-and-micronano-systems">Electronics and Micro/Nano Systems</a>
+  </li>
+
+
+<li class="entity entity-menu-item menu-item-menu-item clearfix" about="/menu_item/menu_item/328" typeof="">
+  <a href="https://engineering.case.edu/electrical-computer-and-systems-engineering/research/computer-architectures-and-embedded-systems">Computer Architectures and Embedded Systems</a>
+  </li>
+
+
+<li class="entity entity-menu-item menu-item-menu-item clearfix" about="/menu_item/menu_item/329" typeof="">
+  <a href="https://engineering.case.edu/electrical-computer-and-systems-engineering/research/connected-devices-and-systems-wearable-and">Connected Devices and Systems, Wearable and Wireless Health</a>
+  </li>
+
+
+<li class="entity entity-menu-item menu-item-menu-item clearfix" about="/menu_item/menu_item/330" typeof="">
+  <a href="https://engineering.case.edu/electrical-computer-and-systems-engineering/research/augmentedvirtual-reality-and-human-machine">Augmented/Virtual Reality and Human-Machine Interfaces</a>
+  </li>
+
+
+<li class="entity entity-menu-item menu-item-menu-item clearfix" about="/menu_item/menu_item/331" typeof="">
+  <a href="https://engineering.case.edu/electrical-computer-and-systems-engineering/research/communications-and-networks">Communications and Networks</a>
+  </li>
+
+
+<li class="entity entity-menu-item menu-item-menu-item clearfix" about="/menu_item/menu_item/332" typeof="">
+  <a href="https://engineering.case.edu/electrical-computer-and-systems-engineering/research/systems-and-grid-modernization">Energy Systems and Grid Modernization</a>
+  </li>
+
+
+<li class="entity entity-menu-item menu-item-menu-item clearfix" about="/menu_item/menu_item/333" typeof="">
+  <a href="https://engineering.case.edu/electrical-computer-and-systems-engineering/research/systems-modeling-complex-systems-biology">Systems Modeling &amp; Complex Systems Biology</a>
+  </li>
+
+    </ul>
+  </li>
+
+
+<li class="entity entity-menu-item menu-item-menu-item clearfix" about="/menu_item/menu_item/38" typeof="">
+  <a href="/electrical-computer-and-systems-engineering/student%20opportunities">Student Opportunities</a>
+  </li>
+
+
+<li class="entity entity-menu-item menu-item-menu-item clearfix" about="/menu_item/menu_item/39" typeof="">
+  <a href="/electrical-computer-and-systems-engineering/faculty-and-staff">Faculty and Staff</a>
+  </li>
+
+
+<li class="entity entity-menu-item menu-item-menu-item clearfix" about="/menu_item/menu_item/40" typeof="">
+  <a href="/electrical-computer-and-systems-engineering/about-electrical">About</a>
+  </li>
+
+
+<li class="entity entity-menu-item menu-item-menu-item clearfix" about="/menu_item/menu_item/366" typeof="">
+  <a href="https://case.emscloudservice.com/web/Default.aspx">ECSE Room Scheduler</a>
+  </li>
+
+
+<li class="entity entity-menu-item menu-item-menu-item clearfix" about="/menu_item/menu_item/368" typeof="">
+  <a href="https://engineering.case.edu/content/case-school-engineering/colloquia-series">Colloquium Series</a>
+  </li>
+
+
+<li class="entity entity-menu-item menu-item-menu-item clearfix" about="/menu_item/menu_item/381" typeof="">
+  <a href="/ecse/employment">Employment Opportunities</a>
+  </li>
+
+</ul></nav>          </div>
+        </div>
+      
+      <div id="main-content" class="clearfix l--constrained-padded">
+
+        
+                        <div id="sidebar-first" class="aside">
+                      <nav class="sub-site--menu"><h3 class="sub-site--menu-title"><a href="/electrical-computer-and-systems-engineering">Electrical, Computer, and Systems Engineering</a></h3><ul class="nav">
+<li class="entity entity-menu-item menu-item-menu-item clearfix" about="/menu_item/menu_item/37" typeof="">
+  <a href="/electrical-computer-and-systems-engineering/academics">Academics</a>
+  </li>
+
+
+<li class="entity entity-menu-item menu-item-menu-item clearfix" about="/menu_item/menu_item/302" typeof="">
+  <a href="/electrical-computer-and-systems-engineering/research">Research</a>
+      <ul class="nav nav--sub-nav">
+      
+<li class="entity entity-menu-item menu-item-menu-item clearfix" about="/menu_item/menu_item/326" typeof="">
+  <a href="https://engineering.case.edu/electrical-computer-and-systems-engineering/research/artificial-intelligence-machine-learning-and">Artificial Intelligence, Machine Learning and Robotics</a>
+  </li>
+
+
+<li class="entity entity-menu-item menu-item-menu-item clearfix" about="/menu_item/menu_item/327" typeof="">
+  <a href="https://engineering.case.edu/electrical-computer-and-systems-engineering/research/electronics-and-micronano-systems">Electronics and Micro/Nano Systems</a>
+  </li>
+
+
+<li class="entity entity-menu-item menu-item-menu-item clearfix" about="/menu_item/menu_item/328" typeof="">
+  <a href="https://engineering.case.edu/electrical-computer-and-systems-engineering/research/computer-architectures-and-embedded-systems">Computer Architectures and Embedded Systems</a>
+  </li>
+
+
+<li class="entity entity-menu-item menu-item-menu-item clearfix" about="/menu_item/menu_item/329" typeof="">
+  <a href="https://engineering.case.edu/electrical-computer-and-systems-engineering/research/connected-devices-and-systems-wearable-and">Connected Devices and Systems, Wearable and Wireless Health</a>
+  </li>
+
+
+<li class="entity entity-menu-item menu-item-menu-item clearfix" about="/menu_item/menu_item/330" typeof="">
+  <a href="https://engineering.case.edu/electrical-computer-and-systems-engineering/research/augmentedvirtual-reality-and-human-machine">Augmented/Virtual Reality and Human-Machine Interfaces</a>
+  </li>
+
+
+<li class="entity entity-menu-item menu-item-menu-item clearfix" about="/menu_item/menu_item/331" typeof="">
+  <a href="https://engineering.case.edu/electrical-computer-and-systems-engineering/research/communications-and-networks">Communications and Networks</a>
+  </li>
+
+
+<li class="entity entity-menu-item menu-item-menu-item clearfix" about="/menu_item/menu_item/332" typeof="">
+  <a href="https://engineering.case.edu/electrical-computer-and-systems-engineering/research/systems-and-grid-modernization">Energy Systems and Grid Modernization</a>
+  </li>
+
+
+<li class="entity entity-menu-item menu-item-menu-item clearfix" about="/menu_item/menu_item/333" typeof="">
+  <a href="https://engineering.case.edu/electrical-computer-and-systems-engineering/research/systems-modeling-complex-systems-biology">Systems Modeling &amp; Complex Systems Biology</a>
+  </li>
+
+    </ul>
+  </li>
+
+
+<li class="entity entity-menu-item menu-item-menu-item clearfix" about="/menu_item/menu_item/38" typeof="">
+  <a href="/electrical-computer-and-systems-engineering/student%20opportunities">Student Opportunities</a>
+  </li>
+
+
+<li class="entity entity-menu-item menu-item-menu-item clearfix" about="/menu_item/menu_item/39" typeof="">
+  <a href="/electrical-computer-and-systems-engineering/faculty-and-staff">Faculty and Staff</a>
+  </li>
+
+
+<li class="entity entity-menu-item menu-item-menu-item clearfix" about="/menu_item/menu_item/40" typeof="">
+  <a href="/electrical-computer-and-systems-engineering/about-electrical">About</a>
+  </li>
+
+
+<li class="entity entity-menu-item menu-item-menu-item clearfix" about="/menu_item/menu_item/366" typeof="">
+  <a href="https://case.emscloudservice.com/web/Default.aspx">ECSE Room Scheduler</a>
+  </li>
+
+
+<li class="entity entity-menu-item menu-item-menu-item clearfix" about="/menu_item/menu_item/368" typeof="">
+  <a href="https://engineering.case.edu/content/case-school-engineering/colloquia-series">Colloquium Series</a>
+  </li>
+
+
+<li class="entity entity-menu-item menu-item-menu-item clearfix" about="/menu_item/menu_item/381" typeof="">
+  <a href="/ecse/employment">Employment Opportunities</a>
+  </li>
+
+</ul></nav><div class="view view-sub-site-page-aside view-id-sub_site_page_aside view-display-id-block view-dom-id-f228e30dd70eb6a043f4e048138ea72d">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+    <aside id="node-73248" class="node node-sub-site-page sub-site-page--aside" about="/electrical-computer-and-systems-engineering/research" typeof="sioc:Item foaf:Document">
+
+  
+  
+<div class="paragraphs-items paragraphs-items-field-ssp-sidebar-content paragraphs-items-field-ssp-sidebar-content-full paragraphs-items-full">
+  <div class="entity entity-paragraphs-item paragraphs-item-content-promo" about="" typeof="">
+  <div class="content">
+    <div class="entity entity-promo promo-promo promo-258 clearfix" about="/promo/promo/258" typeof="">
+  <div class="grid-item--inner">
+    <div class="promo--content">
+      <p>We're in the business of the next big thing. Explore our latest research initiatives at the Case School of Engineering.</p>    </div>
+    <div class="promo--links">
+      <a href="https://engineering.case.edu/research">Learn More</a>    </div>
+  </div>
+</div>
+  </div>
+</div>
+</div>
+</aside>
+  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>              </div>
+          
+                  <h1  class="page-title">
+            Research          </h1>
+        
+        <div id="content">
+
+          
+                    <div class="content-page">
+              <!-- investigate sub-site--list-3 class for styling -->
+<article id="node-73248" class="node node-sub-site-page sub-site-page--full research--page" about="/electrical-computer-and-systems-engineering/research" typeof="sioc:Item foaf:Document">
+   
+        <div class="subsite-page-subhead intro">
+      <big>
+        Explore our research strengths in Electrical, Computer, and Systems Engineering      </big>
+    </div>
+    
+ 
+  
+  <div class="content l--constrained-padded" class="">
+          
+<div class="paragraphs-items paragraphs-items-field-ssp-page-content paragraphs-items-field-ssp-page-content-full paragraphs-items-full">
+  <div class="entity entity-paragraphs-item paragraphs-item-content-list" about="" typeof="">
+  <div class="content">
+    <div id="block-views-subsite-research-thrusts-block" class="block block-views">
+
+      
+  <div  class="block-content block-content">
+    <div class="view view-subsite-research-thrusts view-id-subsite_research_thrusts view-display-id-block view-dom-id-d0fb58c240e8d1e74b5cf3c258cf5a15">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+    <article id="node-73257" class="node node-research-thurst node-teaser research-thurst--teaser" about="/electrical-computer-and-systems-engineering/research/artificial-intelligence-machine-learning-and" typeof="sioc:Item foaf:Document">
+      <div class="research--image">
+      <a href="/electrical-computer-and-systems-engineering/research/artificial-intelligence-machine-learning-and"><img typeof="foaf:Image" src="https://engineering.case.edu/sites/default/files/styles/research_thrust_teaser/public/ai-machine-learning-robotics_0.jpg?itok=cdTyLdbe" width="168" height="117" alt="Engineering holding a model of a machine hand in a lab" /></a>    </div>
+    <div class="research--content">
+          <h2 class="research--title teaser--title">
+        <a href="/electrical-computer-and-systems-engineering/research/artificial-intelligence-machine-learning-and">Artificial Intelligence, Machine Learning and Robotics</a>
+      </h2>
+          </div>
+</article>
+  </div>
+  <div class="views-row views-row-2 views-row-even">
+    <article id="node-73259" class="node node-research-thurst node-teaser research-thurst--teaser" about="/electrical-computer-and-systems-engineering/research/augmentedvirtual-reality-and-human-machine" typeof="sioc:Item foaf:Document">
+      <div class="research--image">
+      <a href="/electrical-computer-and-systems-engineering/research/augmentedvirtual-reality-and-human-machine"><img typeof="foaf:Image" src="https://engineering.case.edu/sites/default/files/styles/research_thrust_teaser/public/augmented-vr.jpg?itok=RFoteApw" width="168" height="117" alt="Person wearing a virtual reality headset in a lab" /></a>    </div>
+    <div class="research--content">
+          <h2 class="research--title teaser--title">
+        <a href="/electrical-computer-and-systems-engineering/research/augmentedvirtual-reality-and-human-machine">Augmented/Virtual Reality and Human-Machine Interfaces</a>
+      </h2>
+          </div>
+</article>
+  </div>
+  <div class="views-row views-row-3 views-row-odd">
+    <article id="node-73258" class="node node-research-thurst node-teaser research-thurst--teaser" about="/electrical-computer-and-systems-engineering/research/communications-and-networks" typeof="sioc:Item foaf:Document">
+      <div class="research--image">
+      <a href="/electrical-computer-and-systems-engineering/research/communications-and-networks"><img typeof="foaf:Image" src="https://engineering.case.edu/sites/default/files/styles/research_thrust_teaser/public/communications-networks.jpg?itok=LfjD1s3R" width="168" height="117" alt="Engineering working in a computer server room" /></a>    </div>
+    <div class="research--content">
+          <h2 class="research--title teaser--title">
+        <a href="/electrical-computer-and-systems-engineering/research/communications-and-networks">Communications and Networks</a>
+      </h2>
+          </div>
+</article>
+  </div>
+  <div class="views-row views-row-4 views-row-even">
+    <article id="node-73263" class="node node-research-thurst node-teaser research-thurst--teaser" about="/electrical-computer-and-systems-engineering/research/computer-architectures-and-embedded-systems" typeof="sioc:Item foaf:Document">
+      <div class="research--image">
+      <a href="/electrical-computer-and-systems-engineering/research/computer-architectures-and-embedded-systems"><img typeof="foaf:Image" src="https://engineering.case.edu/sites/default/files/styles/research_thrust_teaser/public/computer-arch-embedded-systems.jpg?itok=Abdae7MA" width="168" height="117" alt="Close up image of a microchip " /></a>    </div>
+    <div class="research--content">
+          <h2 class="research--title teaser--title">
+        <a href="/electrical-computer-and-systems-engineering/research/computer-architectures-and-embedded-systems">Computer Architectures and Embedded Systems</a>
+      </h2>
+          </div>
+</article>
+  </div>
+  <div class="views-row views-row-5 views-row-odd">
+    <article id="node-73260" class="node node-research-thurst node-teaser research-thurst--teaser" about="/electrical-computer-and-systems-engineering/research/connected-devices-and-systems-wearable-and" typeof="sioc:Item foaf:Document">
+      <div class="research--image">
+      <a href="/electrical-computer-and-systems-engineering/research/connected-devices-and-systems-wearable-and"><img typeof="foaf:Image" src="https://engineering.case.edu/sites/default/files/styles/research_thrust_teaser/public/connected-devices-wearables-health.jpg?itok=ge4CwGWG" width="168" height="117" alt="Person looking at their smartwatch with a screen paired to their smartphone " /></a>    </div>
+    <div class="research--content">
+          <h2 class="research--title teaser--title">
+        <a href="/electrical-computer-and-systems-engineering/research/connected-devices-and-systems-wearable-and">Connected Devices and Systems, Wearable and Wireless Health</a>
+      </h2>
+          </div>
+</article>
+  </div>
+  <div class="views-row views-row-6 views-row-even">
+    <article id="node-73262" class="node node-research-thurst node-teaser research-thurst--teaser" about="/electrical-computer-and-systems-engineering/research/electronics-and-micronano-systems" typeof="sioc:Item foaf:Document">
+      <div class="research--image">
+      <a href="/electrical-computer-and-systems-engineering/research/electronics-and-micronano-systems"><img typeof="foaf:Image" src="https://engineering.case.edu/sites/default/files/styles/research_thrust_teaser/public/micro-nano-electronics.jpg?itok=tXfP5zqo" width="168" height="117" alt="Researcher working on electronics in a lab " /></a>    </div>
+    <div class="research--content">
+          <h2 class="research--title teaser--title">
+        <a href="/electrical-computer-and-systems-engineering/research/electronics-and-micronano-systems">Electronics and Micro/Nano Systems</a>
+      </h2>
+          </div>
+</article>
+  </div>
+  <div class="views-row views-row-7 views-row-odd">
+    <article id="node-73261" class="node node-research-thurst node-teaser research-thurst--teaser" about="/electrical-computer-and-systems-engineering/research/systems-and-grid-modernization" typeof="sioc:Item foaf:Document">
+    <div class="research--content">
+          <h2 class="research--title teaser--title">
+        <a href="/electrical-computer-and-systems-engineering/research/systems-and-grid-modernization">Energy Systems and Grid Modernization</a>
+      </h2>
+          </div>
+</article>
+  </div>
+  <div class="views-row views-row-8 views-row-even views-row-last">
+    <article id="node-73273" class="node node-research-thurst node-teaser research-thurst--teaser" about="/research/centers/ammrc/research/systems-modeling-complex-systems-biology" typeof="sioc:Item foaf:Document">
+      <div class="research--image">
+      <a href="/research/centers/ammrc/research/systems-modeling-complex-systems-biology"><img typeof="foaf:Image" src="https://engineering.case.edu/sites/default/files/styles/research_thrust_teaser/public/systems-modeling.jpg?itok=1_Xn7RQo" width="168" height="117" alt="Close up view of an engineering working on a graph on a computer screen" /></a>    </div>
+    <div class="research--content">
+          <h2 class="research--title teaser--title">
+        <a href="/research/centers/ammrc/research/systems-modeling-complex-systems-biology">Systems Modeling &amp; Complex Systems Biology</a>
+      </h2>
+          </div>
+</article>
+  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>  </div>
+</div>  </div>
+</div>
+<div class="entity entity-paragraphs-item paragraphs-item-content-list" about="" typeof="">
+  <div class="content">
+    <div id="block-views-subsite-news-block" class="block block-views">
+
+        <h2 class="block-title block-title">Latest Electrical, Computer, and Systems Engineering Research News</h2>
+    
+  <div  class="block-content block-content">
+    <div class="view view-subsite-news view-id-subsite_news view-display-id-block view-dom-id-9f93f03672711da5d1eda3c3e12ddc87">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+    <article id="node-79710" class="node node-article article--list" about="/news/cleveland-based-roadprintz-inc-receives-1m-national-science-foundation-advance-mobile-robotic" typeof="sioc:Item foaf:Document">
+      <div class="list--image">
+      <a href="/news/cleveland-based-roadprintz-inc-receives-1m-national-science-foundation-advance-mobile-robotic"><img typeof="foaf:Image" src="https://engineering.case.edu/sites/default/files/styles/grid_sm/public/CSE%20-%20RoadPrintz%20759x468.png?itok=md18J-p6" width="752" height="423" alt="RoadPrintz truck" title="RoadPrintz truck" /></a>    </div>
+    <div class="list--main">
+          <div class="teaser--date">
+        <span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2022-01-19T07:45:00-05:00">Jan. 19, 2022</span>      </div>
+        
+    <h3 class="teaser--title"><a href="/news/cleveland-based-roadprintz-inc-receives-1m-national-science-foundation-advance-mobile-robotic?subsite=17&submenu=73248">Cleveland-based RoadPrintz Inc. receives $1M from National Science Foundation to advance mobile robotic pavement-marking system</a></h3>
+    
+    <div class="teaser--content">
+          </div>
+  </div>
+</article>
+  </div>
+  <div class="views-row views-row-2 views-row-even">
+    <article id="node-78151" class="node node-article article--list" about="/news/making-clotchip-military-ready" typeof="sioc:Item foaf:Document">
+      <div class="list--image">
+      <a href="/news/making-clotchip-military-ready"><img typeof="foaf:Image" src="https://engineering.case.edu/sites/default/files/styles/grid_sm/public/blood%20cells%20red.jpg?itok=rwSyd8A-" width="752" height="423" alt="Red blood cells" /></a>    </div>
+    <div class="list--main">
+          <div class="teaser--date">
+        <span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2021-02-23T10:45:00-05:00">Feb. 23, 2021</span>      </div>
+        
+    <h3 class="teaser--title"><a href="/news/making-clotchip-military-ready?subsite=17&submenu=73248">Making the ClotChip military ready</a></h3>
+    
+    <div class="teaser--content">
+          </div>
+  </div>
+</article>
+  </div>
+  <div class="views-row views-row-3 views-row-odd views-row-last">
+    <article id="node-76733" class="node node-article article--list" about="/news/case-coulter-translational-research-partnership-awards-11-million-funding-and-support-promising" typeof="sioc:Item foaf:Document">
+      <div class="list--image">
+      <a href="/news/case-coulter-translational-research-partnership-awards-11-million-funding-and-support-promising"><img typeof="foaf:Image" src="https://engineering.case.edu/sites/default/files/styles/grid_sm/public/tes-tubes-research-feat.jpg?itok=EVBxfeXD" width="752" height="423" alt="gloved hand and test tubes" /></a>    </div>
+    <div class="list--main">
+          <div class="teaser--date">
+        <span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2020-12-14T10:45:00-05:00">Dec. 14, 2020</span>      </div>
+        
+    <h3 class="teaser--title"><a href="/news/case-coulter-translational-research-partnership-awards-11-million-funding-and-support-promising?subsite=17&submenu=73248">Case Coulter Translational Research Partnership awards $1.1 million in funding and support for promising biomedical engineering university technologies</a></h3>
+    
+    <div class="teaser--content">
+          </div>
+  </div>
+</article>
+  </div>
+    </div>
+  
+  
+  
+  
+      <div class="view-footer">
+      <a href="/electrical-computer-and-systems-engineering/research/news" class="link--more">View All Electrical, Computer, and Systems Engineering Research News  </a>    </div>
+  
+  
+</div>  </div>
+</div>  </div>
+</div>
+<div class="entity entity-paragraphs-item paragraphs-item-content-list" about="" typeof="">
+  <div class="content">
+    <div id="block-views-c91af2b487d53face2005f1b0e644c96" class="block block-views">
+
+        <h2 class="block-title block-title">Institutes, centers and labs related to Electrical, Computer, and Systems Engineering</h2>
+    
+  <div  class="block-content block-content">
+    <div class="view view-department-centers-institutes-and-labs view-id-department_centers_institutes_and_labs view-display-id-block view-dom-id-8c1b61ad73819a379741034b0ff8233a">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+    <article id="node-62025" class="node node-sub-site node-teaser sub-site--institute sub-site--no-feed sub-site--list-3 sub-site--teaser" about="/research/institutes/integrated-robotics" typeof="sioc:Item foaf:Document">
+      <div class="teaser--image">
+      <a href="/research/institutes/integrated-robotics"><img typeof="foaf:Image" src="https://engineering.case.edu/sites/default/files/styles/thumbnail/public/subsite_images/Integrated-Robotics-Baxter.jpg?itok=bo6FR2RD" width="100" height="67" alt="Rethink Robotics Baxter robot" /></a>    </div>
+    <div class="teaser--main">
+        <h3 class="teaser--title"><a href="/research/institutes/integrated-robotics">Integrated Robotics Institute</a></h3>
+    <span property="dc:title" content="Integrated Robotics Institute" class="rdf-meta element-hidden"></span>    <div class="teaser--content">
+      <p>Using a cross-discipline approach to bring&nbsp;creativity, knowledge&nbsp;and expertise to the creation of robotic systems, with a specific focus on exploration, intelligence, movement, manufacturing&nbsp;and health care</p>
+
+<p>&nbsp;</p>
+    </div>
+  </div>
+</article>
+  </div>
+  <div class="views-row views-row-2 views-row-even">
+    <article id="node-1330" class="node node-sub-site node-teaser sub-site--institute sub-site--no-feed sub-site--grid-2 sub-site--list-3 sub-site--teaser" about="/research/institutes/smart-secure-connected-systems" typeof="sioc:Item foaf:Document">
+      <div class="teaser--image">
+      <a href="/research/institutes/smart-secure-connected-systems"><img typeof="foaf:Image" src="https://engineering.case.edu/sites/default/files/styles/thumbnail/public/subsite_images/issacs.jpg?itok=GItqq8J3" width="100" height="56" alt="" /></a>    </div>
+    <div class="teaser--main">
+        <h3 class="teaser--title"><a href="/research/institutes/smart-secure-connected-systems">Institute for Smart, Secure and Connected Systems (ISSACS)</a></h3>
+    <span property="dc:title" content="Institute for Smart, Secure and Connected Systems (ISSACS)" class="rdf-meta element-hidden"></span>    <div class="teaser--content">
+      <p>Join ISSACS and the University Industry Demonstration Partnership for an exciting workshop on October 1!</p>    </div>
+  </div>
+</article>
+  </div>
+  <div class="views-row views-row-3 views-row-odd">
+    <article id="node-81812" class="node node-sub-site node-teaser sub-site--lab sub-site--no-feed sub-site--grid-3 sub-site--teaser" about="/research/labs/saphari-lab" typeof="sioc:Item foaf:Document">
+      <div class="teaser--image">
+          </div>
+    <div class="teaser--main">
+        <h3 class="teaser--title"><a href="/research/labs/saphari-lab">SaPHaRI Lab</a></h3>
+    <span property="dc:title" content="SaPHaRI Lab" class="rdf-meta element-hidden"></span>    <div class="teaser--content">
+      <p>In the Social and Physical Human-Robot Interaction (SaPHaRI) Lab at Case Western Reserve University’s Case School of Engineering, we focus on social and physical human-robot interaction.</p>    </div>
+  </div>
+</article>
+  </div>
+  <div class="views-row views-row-4 views-row-even">
+    <article id="node-81199" class="node node-sub-site node-teaser sub-site--lab sub-site--no-feed sub-site--grid-3 sub-site--teaser" about="/research/labs/erie-lab" typeof="sioc:Item foaf:Document">
+      <div class="teaser--image">
+      <a href="/research/labs/erie-lab"><img typeof="foaf:Image" src="https://engineering.case.edu/sites/default/files/styles/thumbnail/public/subsite_images/Finger_2.png?itok=BLyg4JVw" width="100" height="100" alt="" /></a>    </div>
+    <div class="teaser--main">
+        <h3 class="teaser--title"><a href="/research/labs/erie-lab">Enhanced Robotic Interfaces and Experiences (ERIE) Lab</a></h3>
+    <span property="dc:title" content="Enhanced Robotic Interfaces and Experiences (ERIE) Lab" class="rdf-meta element-hidden"></span>    <div class="teaser--content">
+      <p>The Enhanced Robotic Interfaces and Experiences (ERIE) Lab’s mission is to develop integrated and intelligent multi-modal sensing and feedback interfaces that enable humans to control robots intuitively and effectively</p>    </div>
+  </div>
+</article>
+  </div>
+  <div class="views-row views-row-5 views-row-odd">
+    <article id="node-54011" class="node node-sub-site node-teaser sub-site--lab sub-site--no-feed sub-site--list-3 sub-site--teaser" about="/research/labs/bio-micro-systems" typeof="sioc:Item foaf:Document">
+      <div class="teaser--image">
+      <a href="/research/labs/bio-micro-systems"><img typeof="foaf:Image" src="https://engineering.case.edu/sites/default/files/styles/thumbnail/public/subsite_images/red-blood-cells.jpg?itok=c3c5Zame" width="100" height="63" alt="Red Blood Cells" /></a>    </div>
+    <div class="teaser--main">
+        <h3 class="teaser--title"><a href="/research/labs/bio-micro-systems">BioMicroSystems Laboratory</a></h3>
+    <span property="dc:title" content="BioMicroSystems Laboratory" class="rdf-meta element-hidden"></span>    <div class="teaser--content">
+      <p>Develops next-generation implantable device technologies to restore human function by interfacing with the nervous system, and point-of-care monitoring platforms for personalized healthcare.</p>    </div>
+  </div>
+</article>
+  </div>
+  <div class="views-row views-row-6 views-row-even">
+    <article id="node-54010" class="node node-sub-site node-teaser sub-site--lab sub-site--no-feed sub-site--list-3 sub-site--teaser" about="/research/labs/integrated-circuits-sensor-physics" typeof="sioc:Item foaf:Document">
+      <div class="teaser--image">
+      <a href="/research/labs/integrated-circuits-sensor-physics"><img typeof="foaf:Image" src="https://engineering.case.edu/sites/default/files/styles/thumbnail/public/subsite_images/rf_cochlea_and_antenna.jpg?itok=2guI_QQ4" width="100" height="66" alt="cochlea and antenna" /></a>    </div>
+    <div class="teaser--main">
+        <h3 class="teaser--title"><a href="/research/labs/integrated-circuits-sensor-physics">Integrated Circuits and Sensor Physics Lab</a></h3>
+    <span property="dc:title" content="Integrated Circuits and Sensor Physics Lab" class="rdf-meta element-hidden"></span>    <div class="teaser--content">
+      <p>Explores novel sensor physics and electronics to create precise, miniaturized and low-cost instrumentation that closely integrates sensing, computation and actuation.</p>    </div>
+  </div>
+</article>
+  </div>
+  <div class="views-row views-row-7 views-row-odd">
+    <article id="node-54008" class="node node-sub-site node-teaser sub-site--lab sub-site--no-feed sub-site--list-3 sub-site--teaser" about="/research/labs/energy-information-dashboard" typeof="sioc:Item foaf:Document">
+      <div class="teaser--image">
+      <a href="/research/labs/energy-information-dashboard"><img typeof="foaf:Image" src="https://engineering.case.edu/sites/default/files/styles/thumbnail/public/field/image/cfl_160669086_web_0.jpg?itok=I3ZbpGk_" width="100" height="63" alt="" /></a>    </div>
+    <div class="teaser--main">
+        <h3 class="teaser--title"><a href="/research/labs/energy-information-dashboard">Energy Information Dashboard</a></h3>
+    <span property="dc:title" content="Energy Information Dashboard" class="rdf-meta element-hidden"></span>    <div class="teaser--content">
+      <p>Trains newcomers on the fundamentals of wholesale electricity and futures markets, and develops the first electricity market simulator aimed at pedagogical use.</p>    </div>
+  </div>
+</article>
+  </div>
+  <div class="views-row views-row-8 views-row-even">
+    <article id="node-54006" class="node node-sub-site node-teaser sub-site--lab sub-site--no-feed sub-site--list-3 sub-site--teaser" about="/research/labs/Koyuturk" typeof="sioc:Item foaf:Document">
+      <div class="teaser--image">
+      <a href="/research/labs/Koyuturk"><img typeof="foaf:Image" src="https://engineering.case.edu/sites/default/files/styles/thumbnail/public/subsite_images/data_160353810_lab%20teaser.png?itok=J9MSuUhe" width="100" height="67" alt="Data" /></a>    </div>
+    <div class="teaser--main">
+        <h3 class="teaser--title"><a href="/research/labs/Koyuturk">Koyuturk Group</a></h3>
+    <span property="dc:title" content="Koyuturk Group" class="rdf-meta element-hidden"></span>    <div class="teaser--content">
+      <p>Develops algorithms and computational solutions to problems in systems biology, computational genomics and other applications that involve complex networks.</p>    </div>
+  </div>
+</article>
+  </div>
+  <div class="views-row views-row-9 views-row-odd">
+    <article id="node-54005" class="node node-sub-site node-teaser sub-site--lab sub-site--no-feed sub-site--list-3 sub-site--teaser" about="/research/labs/sensing-interaction" typeof="sioc:Item foaf:Document">
+      <div class="teaser--image">
+      <a href="/research/labs/sensing-interaction"><img typeof="foaf:Image" src="https://engineering.case.edu/sites/default/files/styles/thumbnail/public/subsite_images/data_160353810_lab%20teaser.png?itok=J9MSuUhe" width="100" height="67" alt="Data" /></a>    </div>
+    <div class="teaser--main">
+        <h3 class="teaser--title"><a href="/research/labs/sensing-interaction">Sensing and Interaction Laboratory</a></h3>
+    <span property="dc:title" content="Sensing and Interaction Laboratory" class="rdf-meta element-hidden"></span>    <div class="teaser--content">
+      <p>Focuses on research in mobile health, wearable sensor technologies, deep learning on mobile platforms and the Internet of Things.</p>    </div>
+  </div>
+</article>
+  </div>
+  <div class="views-row views-row-10 views-row-even">
+    <article id="node-54004" class="node node-sub-site node-teaser sub-site--lab sub-site--no-feed sub-site--list-3 sub-site--teaser" about="/research/labs/control-energy-systems" typeof="sioc:Item foaf:Document">
+      <div class="teaser--image">
+      <a href="/research/labs/control-energy-systems"><img typeof="foaf:Image" src="https://engineering.case.edu/sites/default/files/styles/thumbnail/public/subsite_images/TWT-1-65-Cab2.jpg?itok=2RdtFyWx" width="100" height="75" alt="Windmill" /></a>    </div>
+    <div class="teaser--main">
+        <h3 class="teaser--title"><a href="/research/labs/control-energy-systems">Center for Control and Energy Systems</a></h3>
+    <span property="dc:title" content="Center for Control and Energy Systems" class="rdf-meta element-hidden"></span>    <div class="teaser--content">
+      <p>Develops advanced control engineering solutions for renewable energy, wind turbines, power systems, water treatment plants, radio telescopes, spacecraft and industrial applications.</p>    </div>
+  </div>
+</article>
+  </div>
+  <div class="views-row views-row-11 views-row-odd">
+    <article id="node-54003" class="node node-sub-site node-teaser sub-site--lab sub-site--no-feed sub-site--list-3 sub-site--teaser" about="/research/labs/Fietkiewicz" typeof="sioc:Item foaf:Document">
+      <div class="teaser--image">
+      <a href="/research/labs/Fietkiewicz"><img typeof="foaf:Image" src="https://engineering.case.edu/sites/default/files/styles/thumbnail/public/subsite_images/brain-759x500.jpg?itok=JHwtqJS9" width="100" height="66" alt="Brain" /></a>    </div>
+    <div class="teaser--main">
+        <h3 class="teaser--title"><a href="/research/labs/Fietkiewicz">Fietkiewicz Lab</a></h3>
+    <span property="dc:title" content="Fietkiewicz Lab" class="rdf-meta element-hidden"></span>    <div class="teaser--content">
+      <p>Applies computational modeling to study neuroscience and develops high-performance computing and parallel programming methods for scientific applications.</p>    </div>
+  </div>
+</article>
+  </div>
+  <div class="views-row views-row-12 views-row-even">
+    <article id="node-54002" class="node node-sub-site node-teaser sub-site--lab sub-site--no-feed sub-site--list-3 sub-site--teaser" about="/research/labs/Galan" typeof="sioc:Item foaf:Document">
+      <div class="teaser--image">
+      <a href="/research/labs/Galan"><img typeof="foaf:Image" src="https://engineering.case.edu/sites/default/files/styles/thumbnail/public/subsite_images/ekgweb.jpg?itok=F3de4pOa" width="100" height="63" alt="Heart Rate" /></a>    </div>
+    <div class="teaser--main">
+        <h3 class="teaser--title"><a href="/research/labs/Galan">Galan Lab</a></h3>
+    <span property="dc:title" content="Galan Lab" class="rdf-meta element-hidden"></span>    <div class="teaser--content">
+      <p>Investigates systems biology and neuroscience, including the link between heart and brain in epilepsy, and the development of biomarkers for autism from brain activity.</p>    </div>
+  </div>
+</article>
+  </div>
+  <div class="views-row views-row-13 views-row-odd">
+    <article id="node-54001" class="node node-sub-site node-teaser sub-site--lab sub-site--no-feed sub-site--list-3 sub-site--teaser" about="/research/labs/Feng" typeof="sioc:Item foaf:Document">
+      <div class="teaser--image">
+      <a href="/research/labs/Feng"><img typeof="foaf:Image" src="https://engineering.case.edu/sites/default/files/styles/thumbnail/public/subsite_images/Phillip%20Feng_portrait_web.jpg?itok=W2HZldSh" width="100" height="63" alt="Phillip Feng Portrait" /></a>    </div>
+    <div class="teaser--main">
+        <h3 class="teaser--title"><a href="/research/labs/Feng">Feng Research Group</a></h3>
+    <span property="dc:title" content="Feng Research Group" class="rdf-meta element-hidden"></span>    <div class="teaser--content">
+      <p>Develops nanoscale devices for computing building blocks using emerging semiconductors, as well as silicon carbide materials, hardware for harsh environments, and biomedical, photonic and quantum technologies.</p>    </div>
+  </div>
+</article>
+  </div>
+  <div class="views-row views-row-14 views-row-even views-row-last">
+    <article id="node-53939" class="node node-sub-site node-teaser sub-site--lab sub-site--no-feed sub-site--list-3 sub-site--teaser" about="/research/labs/medical-robotics-computer-integrated-surgery" typeof="sioc:Item foaf:Document">
+      <div class="teaser--image">
+      <a href="/research/labs/medical-robotics-computer-integrated-surgery"><img typeof="foaf:Image" src="https://engineering.case.edu/sites/default/files/styles/thumbnail/public/mechanical-engineering-robotics-Cockroach162.jpg?itok=tZ6Y5gl9" width="100" height="56" alt="mechanical engineering students working on a cockroach robot" /></a>    </div>
+    <div class="teaser--main">
+        <h3 class="teaser--title"><a href="/research/labs/medical-robotics-computer-integrated-surgery">Medical Robotics and Computer Integrated Surgery Laboratory</a></h3>
+    <span property="dc:title" content="Medical Robotics and Computer Integrated Surgery Laboratory" class="rdf-meta element-hidden"></span>    <div class="teaser--content">
+      <p>Develops medical applications of robotics and other information technologies, specifically robotic systems for surgery and interventional medicine, human-machine interfaces, haptics, virtual reality surgical simulators and modeling and simulation of complex biological systems.</p>    </div>
+  </div>
+</article>
+  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>  </div>
+</div>  </div>
+</div>
+</div>
+                  <section class="sub-site--related clearfix research--float">
+                    <div id="block-views-d0e5d7a737409c4bf8f5bb5205b0e1e4" class="block block-views">
+              <h2 class="block-title block-title">Publications</h2>
+              <div class="block-content block-content">
+                  <div class="view view-subsite-publications view-id-subsite_publications view-display-id-block_1 view-dom-id-4aaf71a8569a20bca49317dc717c67a4">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+    
+
+<article id="node-79467" class="node node-cse-publication-feature node-promoted cse-publication-feature--aside" about="/content/characterization-ultra-widefield-angiographic-vascular-features-diabetic-2-retinopathy" typeof="sioc:Item foaf:Document">
+      <span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2021-07-29T00:00:00-04:00">Thursday, July 29, 2021</span>    <h3 class="teaser--title">
+      <a class="toggle" href="#" aria-controls="toggle-id-79467" aria-expanded="false">
+        Characterization of Ultra-widefield Angiographic Vascular Features in Diabetic 2 Retinopathy with Automated Severity Classification      </a>
+  </h3>
+  <div id="toggle-id-79467" aria-expanded="false" class="teaser--content toggle--content">
+    <span class="">Sevgi, D., Srivastava, S., Whitney, J.,  O’Connell, M., Sil Kar, S., Hu, M., ... Ehlers, J.</span>
+    <span class="">(2021).</span>
+		
+			<span class="">Characterization of Ultra-widefield Angiographic Vascular Features in Diabetic 2 Retinopathy with Automated Severity Classification. </span>
+			
+    <span class=""><i>Ophthalmology Science,</i></span>
+    <span class=""></span>
+    <span class="">().</span>
+    <span class=""></span>
+		
+						<br>DOI: <a href="https://doi.org/10.1016/j.xops.2021.100049">10.1016/j.xops.2021.100049</a>
+			  </div>
+</article>
+  </div>
+  <div class="views-row views-row-2 views-row-even">
+    
+
+<article id="node-79380" class="node node-cse-publication-feature node-promoted cse-publication-feature--aside" about="/content/quick-annotator-open-source-digital-pathology-based-rapid-image-annotation-tool" typeof="sioc:Item foaf:Document">
+      <span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2021-07-19T00:00:00-04:00">Monday, July 19, 2021</span>    <h3 class="teaser--title">
+      <a class="toggle" href="#" aria-controls="toggle-id-79380" aria-expanded="false">
+        Quick Annotator: an open-source digital pathology based rapid image annotation tool      </a>
+  </h3>
+  <div id="toggle-id-79380" aria-expanded="false" class="teaser--content toggle--content">
+    <span class="">Miao, R., Toth, R., Zhou, Y., <a href="/about/school-directory/anant-madabhushi">Madabhushi, A.</a>, & <a href="/about/school-directory/andrew-janowczyk">Janowczyk, A.</a></span>
+    <span class="">(2021).</span>
+		
+			<span class="">Quick Annotator: an open-source digital pathology based rapid image annotation tool. </span>
+			
+    <span class=""><i>The Journal of Pathology: Clinical Research,</i></span>
+    <span class=""></span>
+    <span class="">().</span>
+    <span class=""></span>
+		
+						<br>DOI: <a href="https://doi.org/10.1002/cjp2.229">10.1002/cjp2.229</a>
+			  </div>
+</article>
+  </div>
+  <div class="views-row views-row-3 views-row-odd views-row-last">
+    
+
+<article id="node-79393" class="node node-cse-publication-feature node-promoted cse-publication-feature--aside" about="/content/computational-pathology-reveals-unique-spatial-patterns-immune-response-he-images-covid-19" typeof="sioc:Item foaf:Document">
+      <span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2021-07-13T00:00:00-04:00">Tuesday, July 13, 2021</span>    <h3 class="teaser--title">
+      <a class="toggle" href="#" aria-controls="toggle-id-79393" aria-expanded="false">
+        Computational pathology reveals unique spatial patterns of immune response in H&amp;E images from COVID-19 autopsies: preliminary findings      </a>
+  </h3>
+  <div id="toggle-id-79393" aria-expanded="false" class="teaser--content toggle--content">
+    <span class="">Corredor-Prada, G., Toro, P., Bera, K., Rasmussen, D., Sankar Viswanathan, V., Buzzy, C., ... <a href="/about/school-directory/anant-madabhushi">Madabhushi, A.</a></span>
+    <span class="">(2021).</span>
+		
+			<span class="">Computational pathology reveals unique spatial patterns of immune response in H&E images from COVID-19 autopsies: preliminary findings. </span>
+			
+    <span class=""><i>Journal of Medical Imaging,</i></span>
+    <span class=""> 8</span>
+    <span class="">(Suppl 1), </span>
+    <span class="">017501.</span>
+		
+		  </div>
+</article>
+  </div>
+    </div>
+  
+  
+  
+  
+      <div class="view-footer">
+      <a href="research/publications" class="link--more">View All Publications  </a>    </div>
+  
+  
+</div>              </div>
+          </div>
+                </section>
+        </div>
+</article>
+          </div>
+        </div>
+
+        
+        </div>
+                <div id="footer">
+  <div class="l--constrained-padded clearfix">
+    <div class="footer--primary footer--inner">
+      <div itemscope itemtype="http://schema.org/Organization" class="micro--dept"><strong><span class="micro--department" itemprop="department">Case School of Engineering</span></strong> <span class="micro--location" itemprop="location">Nord 500</span> <a href="tel:+12163684436"><span class="micro--telephone" itemprop="telephone">216.368.4436</span></a></div><div id="block-cse-social-links-cse-social-links-engineering" class="block block-cse-social-links">
+
+      
+  <div  class="block-content block-content">
+    <div class="item-list"><ul class="nav nav--social"><li class="nav-item first"><a href="https://www.facebook.com/CaseSchoolofEngineering" class="nav-link nav-link--social nav-link--facebook" title="Facebook">Facebook</a></li>
+<li class="nav-item"><a href="https://www.instagram.com/cwruengineering/" class="nav-link nav-link--social nav-link--instagram" title="Instagram">Instagram</a></li>
+<li class="nav-item"><a href="https://twitter.com/CaseEngineer" class="nav-link nav-link--social nav-link--twitter" title="Twitter">Twitter</a></li>
+<li class="nav-item last"><a href="https://www.linkedin.com/company/case-school-of-engineering-at-case-western-reserve-university" class="nav-link nav-link--social nav-link--linkedin" title="LinkedIn">LinkedIn</a></li>
+</ul></div>  </div>
+</div>
+    </div>
+    <div class="footer--secondary footer--inner">
+      <div itemscope itemtype="http://schema.org/Organization" class="micro--org">&copy;<span class="micro--name" itemprop="name">Case Western Reserve University</span>, <span class="micro--addressLocality" itemprop="addressLocality">Cleveland</span>, <span class="micro--addressRegion" itemprop="addressRegion">Ohio</span> <span class="micro--postalCode" itemprop="postalCode">44106</span>, <a href="tel:+12163682000"><span class="micro--telephone" itemprop="telephone">216.368.2000</span></a></br><a href="http://case.edu/utech/policies/legal-privacy-notice/">Legal Notice</a>&nbsp;|&nbsp;<a href="https://case.edu/privacy-statement/">Privacy Statement</a></br><a href="https://case.edu/equity/sexual-harassment-title-ix/title-ix-notice-nondiscrimination" class="mt1">Title IX Notice of Non-Discrimination</a></div>    </div>
+  </div>
+</div>
+<div id="footer-global">
+  <div class="l--constrained-padded footer-global--inner">
+        <div id="block-menu-block-cse-global-elements-foot-case" class="block block-menu-block">
+
+      
+  <div  class="block-content block-content">
+    <div class="menu-block-wrapper menu-block-cse_global_elements-foot-case menu-name-menu-footer-case parent-mlid-0 menu-level-1">
+  <ul class="nav"><li class="first leaf menu-mlid-587 nav-item"><a href="http://www.case.edu/admissions/" class="nav-link">apply</a></li>
+<li class="leaf menu-mlid-588 nav-item"><a href="https://www.givecampus.com/campaigns/8778/donations/new" class="nav-link">give</a></li>
+<li class="leaf menu-mlid-589 nav-item"><a href="http://case.edu/visit/" class="nav-link">visit</a></li>
+<li class="leaf menu-mlid-590 nav-item"><a href="https://webapps.case.edu/directory/index.html" class="nav-link">directory</a></li>
+<li class="last leaf menu-mlid-591 nav-item"><a href="http://www.case.edu/events/" class="nav-link">events</a></li>
+</ul></div>
+  </div>
+</div>
+<div id="block-cse-social-links-cse-social-links-case" class="block block-cse-social-links">
+
+      
+  <div  class="block-content block-content">
+    <div class="item-list"><ul class="nav nav--social"><li class="nav-item first"><a href="https://www.facebook.com/casewesternreserve" class="nav-link nav-link--social nav-link--facebook" title="Facebook">Facebook</a></li>
+<li class="nav-item"><a href="https://www.instagram.com/cwru/" class="nav-link nav-link--social nav-link--instagram" title="Instagram">Instagram</a></li>
+<li class="nav-item"><a href="https://twitter.com/cwru" class="nav-link nav-link--social nav-link--twitter" title="Twitter">Twitter</a></li>
+<li class="nav-item last"><a href="https://www.youtube.com/user/case" class="nav-link nav-link--social nav-link--youtube" title="YouTube">YouTube</a></li>
+</ul></div>  </div>
+</div>
+  </div>
+</div>
+      </div>
+
+
+</div>
+</body>
+</html>
