@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,8 +19,8 @@ namespace Project2_SimpleProxy
 
             this.Method = match.Groups["method"].Value;
 
-            if (match.Groups.ContainsKey("port")){
-                this.Port = int.Parse(match.Groups["port"].Value);
+            if(int.TryParse(match.Groups["port"].Value, out int port)){
+                this.Port = port;
             }
 
             var localurl = new Uri(match.Groups["url"].Value);
